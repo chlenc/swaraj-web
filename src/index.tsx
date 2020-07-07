@@ -1,13 +1,11 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './App';
-import * as serviceWorker from './serviceWorker';
+import { RootStore } from './stores';
+import { Provider } from 'mobx-react';
 
-ReactDOM.render(
-  <React.StrictMode>
+const mobXStore = new RootStore();
+
+ReactDOM.render(<Provider {...mobXStore}>
     <App />
-  </React.StrictMode>,
-  document.getElementById('root')
-);
-
-serviceWorker.register();
+</Provider>, document.getElementById('root'));
