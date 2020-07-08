@@ -3,8 +3,8 @@ import styled from "@emotion/styled";
 import { Router, Switch, Route } from 'react-router-dom'
 import { inject, observer } from 'mobx-react'
 import { HistoryStore } from './stores'
-import MainPage from "./components/body/mainPage";
-
+import './fonts/fonts.css'
+import MainPage from  './components/body/mainPage'
 interface IProps {
   historyStore?: HistoryStore
 }
