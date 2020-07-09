@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import App from './App';
 import { RootStore } from './stores';
 import { Provider } from 'mobx-react';
-import './fonts/fonts.css'
+import './assets/fonts/fonts.css'
 
 const mobXStore = new RootStore();
 
