@@ -23,9 +23,7 @@ box-sizing: border-box;
 border-radius: 4px;
 `
 const Logo = styled.img`
-margin: 32px;
-background: ${logo} center no-repeat;
-background-size: contain;//TODO FIX
+margin-top: 32px;
 `
 
 const Header: React.FC = () =>
@@ -36,8 +34,9 @@ const Header: React.FC = () =>
             <MenuButton href="/Blog" text="Blog"/>
             <MenuButton href="/Docs" text="Docs"/>
             <SignIn><MenuButton href="/Sign_In" text="Sign In"/> </SignIn>
+
         </Menu>
-        <Logo />
+        <Logo src={logo} alt="Logo"/>
     </Root>
 
 export default Header;

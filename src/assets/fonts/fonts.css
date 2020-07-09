@@ -3,4 +3,8 @@
 
 html, body{
     font-family: Roboto Mono, monospace;
+    line-height: 114%;
+    letter-spacing: 0.054em;
+    text-transform: capitalize;
+    color: #4A4B57;
 }

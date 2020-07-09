@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "@emotion/styled";
-import MenuButton from "../MenuButton";
+import MenuButton, {Button} from "../MenuButton";
+import Input from "../Input";
 
 
 const Root = styled.div`
@@ -32,6 +33,12 @@ text-transform: capitalize;
 text-decoration: none;
 color: #4A4B57;
 `
+const Subscribe = styled.div`
+display: flex;
+`
+const Email = styled.div`
+margin: 16px 34px 0 16px;
+`
 
 
 const Footer: React.FC = () =>
@@ -51,7 +58,10 @@ const Footer: React.FC = () =>
                 <SocNet href='https://twitter.com/'>Twitter</SocNet>
                 <SocNet href='https://instagram.com/'>Instagram</SocNet>
             </SocNetBar>
-
+            <Subscribe>
+                <Email><Input text="Enter your email" /></Email>
+                <Button text="Subscribe"/>
+            </Subscribe>
         </FeedBackBar>
 
     </Root>
