@@ -13,7 +13,7 @@ width: 55%;
 font-weight: normal;
 font-size: 12px;
 line-height: 16px;
-color: #19191D;
+color: #19191D; 
 `
 
 const About: React.FC = ()=> <Root>
