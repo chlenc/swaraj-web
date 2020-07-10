@@ -64,7 +64,7 @@ const Footer: React.FC = () =>
             </SocNetBar>
             <Subscribe>
                 <Email><Input text="Enter your email" /></Email>
-                <Button text="Subscribe"/>
+                <Button href={'/'} text="Subscribe"/>
             </Subscribe>
         </FeedBackBar>
 

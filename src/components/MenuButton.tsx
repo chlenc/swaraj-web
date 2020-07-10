@@ -1,14 +1,14 @@
 /** @jsx jsx */
 import React from "react";
 import styled from "@emotion/styled";
-import {Link} from "react-router-dom";
-import {css,jsx} from "@emotion/core";
+import {Link, Route} from "react-router-dom";
+import {css, jsx} from "@emotion/core";
 
 
 interface IItemProps {
-    href?: string
+    href: string
     text: string
-    styles?:string
+    styles?: string
 }
 
 const ItemRoot = styled.div`
@@ -28,13 +28,16 @@ box-sizing: border-box;
 border-radius: 4px;
 `
 
+
 const MenuButton: React.FunctionComponent<IItemProps> = ({href, text}) =>
-  <ItemRoot> <Link  to={href}>{text}</Link></ItemRoot>
+    <Route path={href}>
+        {({match}) => <ItemRoot><Link to={href}>{text}</Link>{match != null  && '✅'}</ItemRoot>}
+    </Route>
 
 export default MenuButton;
 
-const Button: React.FunctionComponent<IItemProps> = ({text,styles}) =>
-   <Wrapper css={css`${styles}`}><ItemRoot> {text}</ItemRoot></Wrapper>
+const Button: React.FunctionComponent<IItemProps> = ({text, styles}) =>
+    <Wrapper css={css`${styles}`}><ItemRoot> {text}</ItemRoot></Wrapper>
 
 export {
     Button
