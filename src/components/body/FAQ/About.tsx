@@ -16,7 +16,7 @@ line-height: 16px;
 color: #19191D;
 `
 
-const FAQ: React.FC = ()=> <Root>
+const About: React.FC = ()=> <Root>
     <Text>
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum auctor vel erat quis mattis.
         Donec aliquam est eget odio sollicitudin scelerisque.
@@ -112,4 +112,4 @@ const FAQ: React.FC = ()=> <Root>
     </Text>
 </Root>
 
-export default FAQ
+export default About
