@@ -5,7 +5,8 @@ import {HistoryStore} from './stores'
 import MainPage from './components/body/mainPage/MainPage'
 import Header from "./components/header/Header";
 import Footer from "./components/footer/Footer";
-import About from "./components/body/FAQ/About";
+import About from "./components/body/About/About";
+import FAQ from "./components/body/FAQ/FAQ";
 
 interface IProps {
     historyStore?: HistoryStore
