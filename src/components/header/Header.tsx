@@ -33,11 +33,11 @@ margin-top: 32px;
 const Header: React.FC = () =>
     <Root>
         <Menu>
-            <MenuButton href="/FAQ" text="FAQ"/>
-            <MenuButton href="/About" text="About"/>
-            <MenuButton href="/Blog" text="Blog"/>
-            <MenuButton href="/Docs" text="Docs"/>
-            <SignIn><MenuButton href="/Sign_In" text="Sign In"/> </SignIn>
+            <MenuButton href="/faq" text="FAQ"/>
+            <MenuButton href="/about" text="About"/>
+            <MenuButton href="/blog" text="Blog"/>
+            <MenuButton href="/docs" text="Docs"/>
+            <SignIn><MenuButton href="/sign_in" text="Sign In"/> </SignIn>
 
         </Menu>
         <Logo src={logo} alt="Logo"/>

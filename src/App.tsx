@@ -19,10 +19,10 @@ export default class App extends React.Component<IProps> {
             <Header/>
             <Switch>
                 <Route exact path="/" component={MainPage}/>
-                <Route exact path="/FAQ" component={MainPage}/>
-                <Route exact path="/About" component={MainPage}/>
-                <Route exact path="/Blog" component={MainPage}/>
-                <Route exact path="/Docs" component={MainPage}/>
+                <Route exact path="/faq" component={MainPage}/>
+                <Route exact path="/about" component={MainPage}/>
+                <Route exact path="/blog" component={MainPage}/>
+                <Route exact path="/docs" component={MainPage}/>
                 <Route component={MainPage}/>
             </Switch>
             <Footer/>

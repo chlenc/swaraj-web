@@ -9,9 +9,9 @@ display: flex;
 font-size: 12px;
 justify-content: center;
 line-height: 114%;
-    letter-spacing: 0.054em;
-    text-transform: capitalize;
-    color: #4A4B57;
+letter-spacing: 0.054em;
+text-transform: capitalize;
+color: #4A4B57;
 `
 const Menu = styled.div`
 display: flex;
@@ -49,12 +49,12 @@ const Footer: React.FC = () =>
     <Root>
         <Menu>
             <MenuColumn>
-                <MenuButton href='/Privacy Policy' text='Privacy Policy'/>
-                <MenuButton href='/Terms of Service' text='Terms of Service'/>
+                <MenuButton href='/privacy_policy' text='Privacy Policy'/>
+                <MenuButton href='/terms_of_service' text='Terms of Service'/>
             </MenuColumn>
             <MenuColumn>
-                <MenuButton href='/Authenticate An Item' text='Authenticate An Item'/>
-                <MenuButton href='/Customer Care' text='Customer Care'/>
+                <MenuButton href='/authenticate_an_item' text='Authenticate An Item'/>
+                <MenuButton href='/customer_care' text='Customer Care'/>
             </MenuColumn>
         </Menu>
         <FeedBackBar>
