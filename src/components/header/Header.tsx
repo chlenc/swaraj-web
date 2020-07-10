@@ -7,6 +7,10 @@ const Root = styled.div`
 display: flex;
 flex-direction: column;
 align-items: center;
+line-height: 114%;
+    letter-spacing: 0.054em;
+    text-transform: capitalize;
+    color: #4A4B57;
 `
 const Menu = styled.div`
 padding-top: 59px;

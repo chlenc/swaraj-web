@@ -2,7 +2,7 @@ import React from 'react';
 import {Router, Switch, Route} from 'react-router-dom'
 import {inject, observer} from 'mobx-react'
 import {HistoryStore} from './stores'
-import MainPage from './components/body/MainPage'
+import MainPage from './components/body/mainPage/MainPage'
 import Header from "./components/header/Header";
 import Footer from "./components/footer/Footer";
 

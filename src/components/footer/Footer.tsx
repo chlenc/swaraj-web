@@ -8,6 +8,10 @@ const Root = styled.div`
 display: flex;
 font-size: 12px;
 justify-content: center;
+line-height: 114%;
+    letter-spacing: 0.054em;
+    text-transform: capitalize;
+    color: #4A4B57;
 `
 const Menu = styled.div`
 display: flex;
