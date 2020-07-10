@@ -5,6 +5,7 @@ import {HistoryStore} from './stores'
 import MainPage from './components/body/mainPage/MainPage'
 import Header from "./components/header/Header";
 import Footer from "./components/footer/Footer";
+import FAQ from "./components/body/FAQ/FAQ";
 
 interface IProps {
     historyStore?: HistoryStore
@@ -19,7 +20,7 @@ export default class App extends React.Component<IProps> {
             <Header/>
             <Switch>
                 <Route exact path="/" component={MainPage}/>
-                <Route exact path="/faq" component={MainPage}/>
+                <Route exact path="/faq" component={FAQ}/>
                 <Route exact path="/about" component={MainPage}/>
                 <Route exact path="/blog" component={MainPage}/>
                 <Route exact path="/docs" component={MainPage}/>
