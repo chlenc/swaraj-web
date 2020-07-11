@@ -1,7 +1,9 @@
 import React from "react";
 import styled from "@emotion/styled";
-import MenuButton, {Button} from "../MenuButton";
+import MenuButton from "../MenuButton";
+import Button from "../Button";
 import Input from "../Input";
+import {ROUTES} from "../../ROUTES";
 
 
 const Root = styled.div`
@@ -49,12 +51,12 @@ const Footer: React.FC = () =>
     <Root>
         <Menu>
             <MenuColumn>
-                <MenuButton href='/privacy_policy' text='Privacy Policy'/>
-                <MenuButton href='/terms_of_service' text='Terms of Service'/>
+                <MenuButton href={ROUTES.PRIVACYPOLICY} text='Privacy Policy'/>
+                <MenuButton href={ROUTES.TERMSofSERVICE} text='Terms of Service'/>
             </MenuColumn>
             <MenuColumn>
-                <MenuButton href='/authenticate_an_item' text='Authenticate An Item'/>
-                <MenuButton href='/customer_care' text='Customer Care'/>
+                <MenuButton href={ROUTES.AUTHENTICATEanITEM} text='Authenticate An Item'/>
+                <MenuButton href={ROUTES.CUSTOMERCARE} text='Customer Care'/>
             </MenuColumn>
         </Menu>
         <FeedBackBar>
@@ -64,7 +66,7 @@ const Footer: React.FC = () =>
             </SocNetBar>
             <Subscribe>
                 <Email><Input text="Enter your email" /></Email>
-                <Button href={'/'} text="Subscribe"/>
+                <Button text="Subscribe"/>
             </Subscribe>
         </FeedBackBar>
 

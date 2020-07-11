@@ -3,7 +3,7 @@ import React from "react";
 import styled from "@emotion/styled";
 import good from "../../assets/images/good.png"
 import {css,jsx} from "@emotion/core";
-import {Button} from "../MenuButton";
+import Button from "../Button";
 
 
 const Root = styled.div`
@@ -96,7 +96,7 @@ export default class Good extends React.Component{
                     <Size css = {css`text-decoration: underline;border: 0;`}>Sizing</Size>
                 </SizeChoose>
                 <Price>Price: 49 USD (0.27 ETH)</Price>
-                <Button href={'/'} text="Buy" styles="background:#CBE5CC; border: 0;"/>
+                <Button text="Buy" styles="background:#CBE5CC; border: 0;"/>
             </GoodInfo>
         </Root>;
     }

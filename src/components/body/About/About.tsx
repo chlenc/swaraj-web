@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "@emotion/styled";
+import SizedBox from "../../SizedBox";
 
 const Root = styled.div`
 margin: 54px 0;
@@ -28,8 +29,7 @@ const About: React.FC = ()=> <Root>
         Nam ornare nunc id risus fermentum euismod. Ut vitae maximus mauris, eu aliquam odio.
         Vestibulum ipsum ex, volutpat et nunc at, venenatis tristique justo.
         Nunc fringilla mauris erat, vel vehicula nisl ullamcorper et.
-        <br/>
-        <br/>
+        <SizedBox height={20}/>
         Vestibulum vel ante tortor. In dignissim a neque non sagittis.
         Suspendisse feugiat accumsan sapien, a tincidunt sapien finibus ac.
         Curabitur venenatis faucibus elit, non ultrices elit tincidunt vel.
@@ -39,8 +39,7 @@ const About: React.FC = ()=> <Root>
         Nam ornare nunc id risus fermentum euismod. Ut vitae maximus mauris, eu aliquam odio.
         Vestibulum ipsum ex, volutpat et nunc at, venenatis tristique justo.
         Nunc fringilla mauris erat, vel vehicula nisl ullamcorper et.
-        <br/>
-        <br/>
+        <SizedBox height={20}/>
         Phasellus vel metus at nisi suscipit elementum eget convallis leo.
         Nunc cursus non est vitae ultricies.
         Praesent sed lacinia lorem, ut luctus ipsum.
@@ -68,8 +67,7 @@ const About: React.FC = ()=> <Root>
         Nam ornare nunc id risus fermentum euismod. Ut vitae maximus mauris, eu aliquam odio.
         Vestibulum ipsum ex, volutpat et nunc at, venenatis tristique justo.
         Nunc fringilla mauris erat, vel vehicula nisl ullamcorper et.
-        <br/>
-        <br/>
+        <SizedBox height={20}/>
         Nullam risus augue, pretium ut auctor eget, maximus ac ante.
         Phasellus feugiat ornare dui, non suscipit erat ultrices eget. Aliquam erat volutpat.
         Integer ligula orci, scelerisque sit amet rhoncus quis, lobortis eu risus.
@@ -81,8 +79,7 @@ const About: React.FC = ()=> <Root>
         Nam ornare nunc id risus fermentum euismod. Ut vitae maximus mauris, eu aliquam odio.
         Vestibulum ipsum ex, volutpat et nunc at, venenatis tristique justo.
         Nunc fringilla mauris erat, vel vehicula nisl ullamcorper et.
-        <br/>
-        <br/>
+        <SizedBox height={20}/>
         Mauris mattis tristique tellus, nec porttitor lacus hendrerit feugiat.
         Mauris efficitur est facilisis, cursus purus quis, placerat arcu.
         Quisque ultrices lectus eu lacinia aliquet.
@@ -107,8 +104,7 @@ const About: React.FC = ()=> <Root>
         Nam ornare nunc id risus fermentum euismod. Ut vitae maximus mauris, eu aliquam odio.
         Vestibulum ipsum ex, volutpat et nunc at, venenatis tristique justo.
         Nunc fringilla mauris erat, vel vehicula nisl ullamcorper et.
-        <br/>
-        <br/>
+        <SizedBox height={20}/>
     </Text>
 </Root>
 

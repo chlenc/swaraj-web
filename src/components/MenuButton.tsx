@@ -14,31 +14,20 @@ interface IItemProps {
 const ItemRoot = styled.div`
 display: flex;
 flex-direction: row;
-border-radius: 4px;
-padding: 12px 16px;
 cursor: pointer;
 &>*{
+border-radius: 4px;
+padding: 12px 16px;
 text-decoration: none;
 color: #4A4B57;
 }
 `
-const Wrapper = styled.div`
-border: 1px solid #4A4B57; 
-box-sizing: border-box;
-border-radius: 4px;
-`
-
 
 const MenuButton: React.FunctionComponent<IItemProps> = ({href, text}) =>
     <Route path={href}>
-        {({match}) => <ItemRoot><Link to={href}>{text}</Link>{match != null  && '✅'}</ItemRoot>}
+        {({match}) => <ItemRoot><Link to={href} css={css`background: ${(match != null) ?  '#EDEDF0': 'none'}`} >{text}</Link></ItemRoot>}
     </Route>
 
 export default MenuButton;
 
-const Button: React.FunctionComponent<IItemProps> = ({text, styles}) =>
-    <Wrapper css={css`${styles}`}><ItemRoot> {text}</ItemRoot></Wrapper>
 
-export {
-    Button
-}

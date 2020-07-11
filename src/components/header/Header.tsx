@@ -2,7 +2,7 @@ import React from "react";
 import styled from "@emotion/styled";
 import MenuButton from "../MenuButton";
 import logo from '../../assets/images/logo.svg'
-import {ROUTES} from "../../App";
+import {ROUTES} from "../../ROUTES";
 import {Link} from "react-router-dom";
 
 const Root = styled.div`
