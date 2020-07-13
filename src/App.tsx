@@ -1,30 +1,36 @@
 import React from 'react';
 import {Router, Switch, Route} from 'react-router-dom'
-import {inject, observer, Provider} from 'mobx-react'
-import {HistoryStore} from './stores'
 import MainPage from './components/body/mainPage/MainPage'
 import Header from "./components/header/Header";
 import Footer from "./components/footer/Footer";
+import About from "./components/body/About/About";
+import FAQ from "./components/body/FAQ/FAQ";
+import {createBrowserHistory} from "history";
+import {ROUTES} from './ROUTES'
+import CustomerCare from "./components/body/customerCare/CustomerCare";
 import Dialog from "./components/Dialog";
 
 interface IProps {
-    historyStore?: HistoryStore
 }
 
-@inject('historyStore')
-@observer
+const history = createBrowserHistory()
+
+
 export default class App extends React.Component<IProps> {
 
     render() {
-        return <Router history={this.props.historyStore!.history}>
+        return <Router history={history}>
             <Header/>
             <Switch>
-                <Route exact path="/" component={MainPage}/>
-                <Route exact path="/FAQ" component={MainPage}/>
-                <Route exact path="/About" component={MainPage}/>
-                <Route exact path="/Blog" component={MainPage}/>
-                <Route exact path="/Docs" component={MainPage}/>
-                <Route component={MainPage}/>
+                <Route exact path={ROUTES.ROOT} component={MainPage}/>
+                <Route path={ROUTES.FAQ} component={FAQ}/>
+                <Route path={ROUTES.ABOUT} component={About}/>
+                <Route exact path={ROUTES.BLOG} component={() => <div>blog</div>}/>
+                <Route exact path={ROUTES.DOCS} component={() => <div>docs</div>}/>
+                <Route exact path={ROUTES.PRIVACYPOLICY} component={() => <div>PRIVACYPOLICY</div>}/>
+                <Route exact path={ROUTES.TERMSofSERVICE} component={() => <div>TERMSofSERVICE</div>}/>
+                <Route exact path={ROUTES.AUTHENTICATEanITEM} component={() => <div>AUTHENTICATEanITEM</div>}/>
+                <Route exact path={ROUTES.CUSTOMERCARE} component={CustomerCare}/>
             </Switch>
             <Route path="/dialog" component={() =>     <Dialog>Хуй</Dialog>   }/>
             <Footer/>

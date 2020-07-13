@@ -3,7 +3,7 @@ import React from "react";
 import styled from "@emotion/styled";
 import good from "../../assets/images/good.png"
 import {css,jsx} from "@emotion/core";
-import {Button} from "../MenuButton";
+import Button from "../Button";
 
 
 const Root = styled.div`
