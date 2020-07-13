@@ -2,6 +2,8 @@ import React from "react";
 import styled from "@emotion/styled";
 import MenuButton from "../MenuButton";
 import logo from '../../assets/images/logo.svg'
+import {ROUTES} from "../../ROUTES";
+import {Link} from "react-router-dom";
 
 const Root = styled.div`
 display: flex;
@@ -32,15 +34,15 @@ margin-top: 32px;
 
 const Header: React.FC = () =>
     <Root>
+        {/*https://github.com/chlenc/swaraj-web*/}
         <Menu>
-            <MenuButton href="/FAQ" text="FAQ"/>
-            <MenuButton href="/About" text="About"/>
-            <MenuButton href="/Blog" text="Blog"/>
-            <MenuButton href="/Docs" text="Docs"/>
-            <SignIn><MenuButton href="/Sign_In" text="Sign In"/> </SignIn>
-
+            <MenuButton href={ROUTES.FAQ} text="FAQ"/>
+            <MenuButton href={ROUTES.ABOUT} text="About"/>
+            <MenuButton href={ROUTES.BLOG} text="Blog"/>
+            <MenuButton href={ROUTES.DOCS} text="Docs"/>
+            <SignIn><MenuButton href="/sign_in" text="Sign In"/> </SignIn>
         </Menu>
-        <Logo src={logo} alt="Logo"/>
+        <Link to={ROUTES.ROOT}><Logo src={logo} alt="Logo"/></Link>
     </Root>
 
 export default Header;

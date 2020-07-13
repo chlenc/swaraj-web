@@ -1,7 +1,9 @@
 import React from "react";
 import styled from "@emotion/styled";
-import MenuButton, {Button} from "../MenuButton";
+import MenuButton from "../MenuButton";
+import Button from "../Button";
 import Input from "../Input";
+import {ROUTES} from "../../ROUTES";
 
 
 const Root = styled.div`
@@ -9,9 +11,9 @@ display: flex;
 font-size: 12px;
 justify-content: center;
 line-height: 114%;
-    letter-spacing: 0.054em;
-    text-transform: capitalize;
-    color: #4A4B57;
+letter-spacing: 0.054em;
+text-transform: capitalize;
+color: #4A4B57;
 `
 const Menu = styled.div`
 display: flex;
@@ -49,12 +51,12 @@ const Footer: React.FC = () =>
     <Root>
         <Menu>
             <MenuColumn>
-                <MenuButton href='/Privacy Policy' text='Privacy Policy'/>
-                <MenuButton href='/Terms of Service' text='Terms of Service'/>
+                <MenuButton href={ROUTES.PRIVACYPOLICY} text='Privacy Policy'/>
+                <MenuButton href={ROUTES.TERMSofSERVICE} text='Terms of Service'/>
             </MenuColumn>
             <MenuColumn>
-                <MenuButton href='/Authenticate An Item' text='Authenticate An Item'/>
-                <MenuButton href='/Customer Care' text='Customer Care'/>
+                <MenuButton href={ROUTES.AUTHENTICATEanITEM} text='Authenticate An Item'/>
+                <MenuButton href={ROUTES.CUSTOMERCARE} text='Customer Care'/>
             </MenuColumn>
         </Menu>
         <FeedBackBar>
