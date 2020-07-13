@@ -65,7 +65,7 @@ const Footer: React.FC = () =>
                 <SocNet href='https://instagram.com/'>Instagram</SocNet>
             </SocNetBar>
             <Subscribe>
-                <Email><Input text="Enter your email" /></Email>
+                <Email><Input placeholder="Enter your email" /></Email>
                 <Button text="Subscribe"/>
             </Subscribe>
         </FeedBackBar>

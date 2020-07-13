@@ -5,33 +5,25 @@ interface IProps {
     text: string
 }
 
-const Root = styled.label`
-width: 100%;
-max-width: 316px;
-border-radius: 3px;
-overflow: hidden;
-`
-const Wrapper = styled.input`
-width: 328px;
-border: 0;
+
+const Input = styled.input`
 padding-bottom: 5px;
 font-size: 12px; 
-box-shadow: inset 0 -1px 0 #F7F7FA;
-color: #F7F7FA;
+border: none;
+border-bottom: 1px solid rgba(0, 0, 0, 0.36);
+outline: none;
+color: #4A4B57;
 transition: all .15s ease;
 
-&:hover{
-      box-shadow: inset 0 -2px 0 #CBE5CC;}
-&:focus{
-      outline: none;
-      box-shadow: inset 0 -2px #43A047}    
-`
-export default class Input extends React.Component<IProps> {
+::placeholder{
+    font-family: Roboto Mono, monospace;
 
-    render(): React.ReactNode {
-        return <Root>
-                    <Wrapper placeholder={this.props.text}/>
-        </Root>;
-    }
 }
+&:hover{
+}
+&:focus{
+border-bottom: 1px solid green;
+}    
+`
 
+export default Input
