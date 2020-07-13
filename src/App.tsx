@@ -1,10 +1,11 @@
 import React from 'react';
 import {Router, Switch, Route} from 'react-router-dom'
-import {inject, observer} from 'mobx-react'
+import {inject, observer, Provider} from 'mobx-react'
 import {HistoryStore} from './stores'
 import MainPage from './components/body/mainPage/MainPage'
 import Header from "./components/header/Header";
 import Footer from "./components/footer/Footer";
+import Dialog from "./components/Dialog";
 
 interface IProps {
     historyStore?: HistoryStore
@@ -25,6 +26,7 @@ export default class App extends React.Component<IProps> {
                 <Route exact path="/Docs" component={MainPage}/>
                 <Route component={MainPage}/>
             </Switch>
+            <Route path="/dialog" component={() =>     <Dialog>Хуй</Dialog>   }/>
             <Footer/>
         </Router>
     }

@@ -11,10 +11,11 @@
     "history": "^5.0.0",
     "mobx": "^5.15.4",
     "mobx-react": "^6.2.2",
+    "rc-dialog": "^8.1.0",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
-    "react-scripts": "3.4.1",
-    "react-router-dom": "^5.1.5"
+    "react-router-dom": "^5.1.5",
+    "react-scripts": "3.4.1"
   },
   "scripts": {
     "start": "react-scripts start",
