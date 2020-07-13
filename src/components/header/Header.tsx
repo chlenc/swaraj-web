@@ -4,6 +4,8 @@ import MenuButton from "../MenuButton";
 import logo from '../../assets/images/logo.svg'
 import {ROUTES} from "../../ROUTES";
 import {Link} from "react-router-dom";
+import Button from "../Button";
+import ModalWindow from "../ModalWindow";
 
 const Root = styled.div`
 display: flex;
@@ -23,11 +25,6 @@ margin: -13px;
  margin: 13px;
  }
 `
-const SignIn = styled.div`
-border: 1px solid #4A4B57; 
-box-sizing: border-box;
-border-radius: 4px;
-`
 const Logo = styled.img`
 margin-top: 32px;
 `
@@ -40,7 +37,8 @@ const Header: React.FC = () =>
             <MenuButton href={ROUTES.ABOUT} text="About"/>
             <MenuButton href={ROUTES.BLOG} text="Blog"/>
             <MenuButton href={ROUTES.DOCS} text="Docs"/>
-            <SignIn><MenuButton href="/sign_in" text="Sign In"/> </SignIn>
+            <Button text="Sign In"/>
+            <ModalWindow/>
         </Menu>
         <Link to={ROUTES.ROOT}><Logo src={logo} alt="Logo"/></Link>
     </Root>
