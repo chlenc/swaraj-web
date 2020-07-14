@@ -57,7 +57,7 @@ const Footer: React.FC = () =>
             </MenuColumn>
             <MenuColumn>
                 <MenuButton href={ROUTES.AUTHENTICATEanITEM} text='Authenticate An Item'/>
-                <MenuButton href={ROUTES.CUSTOMERCARE} text='Customer Care'/>
+                <MenuButton href={ROUTES.DELIVERY} text='Customer Care'/>
             </MenuColumn>
         </Menu>
         <FeedBackBar>
