@@ -8,6 +8,7 @@ import Button from "../Button";
 
 const Root = styled.div`
 display: flex;
+justify-content: center;
 margin: 45px 0;
 font-size: 12px;
 line-height: 16px;

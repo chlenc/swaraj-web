@@ -1,12 +1,9 @@
 import React from "react";
 import styled from "@emotion/styled";
 
-interface IProps {
-    text: string
-}
-
 
 const Input = styled.input`
+width: 22vw;
 padding-bottom: 5px;
 font-size: 12px; 
 border: none;
@@ -16,13 +13,13 @@ color: #4A4B57;
 transition: all .15s ease;
 
 ::placeholder{
-    font-family: Roboto Mono, monospace;
-
+font-family: Oxygen Mono, monospace;
 }
 &:hover{
+border-bottom: 1px solid #CBE5CC;
 }
 &:focus{
-border-bottom: 1px solid green;
+border-bottom: 1px solid #43A047;
 }    
 `
 

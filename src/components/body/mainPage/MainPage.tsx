@@ -1,13 +1,10 @@
 import React from "react";
-import styled from "@emotion/styled";
 import Good from "../Good";
 
 
-const Root = styled.div``
-
-const MainPage: React.FunctionComponent = () => <Root>
+const MainPage: React.FunctionComponent = () => <div>
     <Good/>
     <Good/>
-</Root>
+</div>
 
 export default MainPage;

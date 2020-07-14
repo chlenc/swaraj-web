@@ -5,7 +5,6 @@ import { RootStore } from './stores';
 import { Provider } from 'mobx-react';
 import './assets/fonts/fonts.css'
 import 'rc-dialog/dist/rc-dialog.css'
-import Dialog from "./components/Dialog";
 
 const mobXStore = new RootStore();
 

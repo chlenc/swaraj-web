@@ -14,6 +14,7 @@ line-height: 114%;
 letter-spacing: 0.054em;
 text-transform: capitalize;
 color: #4A4B57;
+margin-bottom: 100px;
 `
 const Menu = styled.div`
 display: flex;
