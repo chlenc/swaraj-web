@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "@emotion/styled";
 import Menu from "./Menu";
-import About from "../About/About";
+import About from "../../topMenu/About/About";
 
 const Root = styled.div`
 display: flex;

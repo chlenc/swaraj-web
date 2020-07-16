@@ -1,7 +1,7 @@
 import styled from "@emotion/styled";
 import React from "react";
-import MenuButton from "../../MenuButton";
-import {ROUTES} from "../../../ROUTES";
+import MenuButton from "../../../MenuButton";
+import {ROUTES} from "../../../../ROUTES";
 
 
 const Root = styled.div`

@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "@emotion/styled";
-import SizedBox from "../../SizedBox";
+import SizedBox from "../../../SizedBox";
 
 const Root = styled.div`
 margin: 54px 0;
