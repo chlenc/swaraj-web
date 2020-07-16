@@ -15,6 +15,10 @@ letter-spacing: 0.054em;
 text-transform: capitalize;
 color: #4A4B57;
 margin-bottom: 100px;
+& img{
+width: 30px;
+height: auto;
+}
 `
 const Menu = styled.div`
 display: flex;
@@ -58,6 +62,9 @@ const Footer: React.FC = () =>
             <MenuColumn>
                 <MenuButton href={ROUTES.AUTHENTICATEanITEM} text='Authenticate An Item'/>
                 <MenuButton href={ROUTES.DELIVERY} text='Customer Care'/>
+                <a href="https://github.com/chlenc/swaraj-web">
+                    <img src="https://cdn.iconscout.com/icon/free/png-256/github-153-675523.png"/>
+                </a>
             </MenuColumn>
         </Menu>
         <FeedBackBar>
@@ -70,7 +77,6 @@ const Footer: React.FC = () =>
                 <Button>Subscribe</Button>
             </Subscribe>
         </FeedBackBar>
-        {/*https://github.com/chlenc/swaraj-web*/}
     </Root>
 
 export default Footer;

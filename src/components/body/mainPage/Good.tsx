@@ -1,9 +1,12 @@
 /** @jsx jsx */
 import React from "react";
 import styled from "@emotion/styled";
-import good from "../../assets/images/good.png"
+import good from "../../../assets/images/good.png"
 import {css,jsx} from "@emotion/core";
-import Button from "../Button";
+import Button from "../../Button";
+import {ROUTES} from "../../../ROUTES";
+import {Link} from "react-router-dom";
+import Size from "../Sixe";
 
 
 const Root = styled.div`
@@ -41,22 +44,12 @@ margin-bottom: 40px;
 `
 const SizeChoose = styled.div`
 display: flex;
-margin: -13px;
+margin: -6px;
 & > *{
-margin: 13px;
+margin: 6px;
 }
 `
-const Size = styled.div`
-padding: 14px 16px;
-font-size: 10px;
-line-height: 114%;
-letter-spacing: 0.054em;
-text-transform: capitalize;
-color: #4A4B57;
-border: 1px solid #4A4B57;
-box-sizing: border-box;
-border-radius: 4px;
-`
+
 const Price = styled.div`
 margin-top: 46px;
 margin-bottom: 44px;
@@ -90,14 +83,15 @@ export default class Good extends React.Component{
                     nisi ut aliquip ex ea commodo consequat.
                 </Details>
                 <SizeChoose>
-                    <Size css = {css` border: 0;`}>M</Size>
-                    <Size>L</Size>
-                    <Size css = {css` border: 0; color: #E1E1E3;`}>XL</Size>
-                    <Size css = {css` border: 0;`}>XXL</Size>
-                    <Size css = {css`text-decoration: underline;border: 0;`}>Sizing</Size>
+                    <Size>M</Size>
+                    <Size css = {css` border: 1px solid #4A4B57`}>L</Size>
+                    <Size css = {css`color: #E1E1E3;`}>XL</Size>
+                    <Size>XXL</Size>
+                    <Size css = {css`text-decoration: underline;`}>Sizing</Size>
                 </SizeChoose>
                 <Price>Price: 49 USD (0.27 ETH)</Price>
-                <Button css = {css`background:#CBE5CC; border: 0;`}>Buy</Button>
+                <Button css = {css`background:#CBE5CC; border: 0;`}>
+                    <Link to={ROUTES.BUY}>Buy</Link></Button>
             </GoodInfo>
         </Root>;
     }

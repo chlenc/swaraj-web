@@ -7,7 +7,6 @@ import Header from "./components/header/Header";
 import Footer from "./components/footer/Footer";
 import About from "./components/body/About/About";
 import FAQ from "./components/body/FAQ/FAQ";
-import CustomerCare from "./components/body/customerCare/CustomerCare";
 import Dialog from "./components/Dialog";
 import Blog from "./components/body/blog/Blog";
 import Docs from "./components/body/docs/Docs";
@@ -21,6 +20,8 @@ import Delivery from "./components/body/customerCare/Delivery";
 import Returns from "./components/body/customerCare/Returns";
 import SignIn from "./components/body/mainPage/dialogs/SignIn";
 import CreateAccount from "./components/body/mainPage/dialogs/CreateAccount";
+import GoodCard from "./components/body/mainPage/dialogs/GoodCard";
+import NewAddress from "./components/body/mainPage/dialogs/NewAddress";
 
 
 const history = createBrowserHistory()
@@ -45,7 +46,8 @@ const App: React.FC = () => <Router history={history}>
 
             <Route path={ROUTES.SIGNIN} component={SignIn}/>
             <Route path={ROUTES.INSTALLMETAMASK} component={CreateAccount}/>
-            <Route path="/dialog" component={() =>     <Dialog>Хуй</Dialog>   }/>
+            <Route path={ROUTES.BUY} component={GoodCard}/>
+            <Route path={ROUTES.NEWADRESS} component={NewAddress}/>
             <Footer/>
         </Router>
 export default App;

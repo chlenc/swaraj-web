@@ -6,6 +6,8 @@ export enum ROUTES {
     DOCS = '/docs',
     SIGNIN = '/sign_in',
     INSTALLMETAMASK = '/create_account',
+    BUY = '/buy',
+    NEWADRESS = '/new_delivery_address',
     PRIVACYPOLICY = '/privacy_policy',
     TERMSofSERVICE = '/terms_of_service',
     AUTHENTICATEanITEM = '/authenticate_an_item',
