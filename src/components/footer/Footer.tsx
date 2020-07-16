@@ -67,10 +67,10 @@ const Footer: React.FC = () =>
             </SocNetBar>
             <Subscribe>
                 <Email><Input placeholder="Enter your email" /></Email>
-                <Button text="Subscribe"/>
+                <Button>Subscribe</Button>
             </Subscribe>
         </FeedBackBar>
-
+        {/*https://github.com/chlenc/swaraj-web*/}
     </Root>
 
 export default Footer;

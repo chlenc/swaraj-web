@@ -16,10 +16,10 @@ transition: all .15s ease;
 font-family: Oxygen Mono, monospace;
 }
 &:hover{
-border-bottom: 1px solid #CBE5CC;
+border-bottom: 2px solid #CBE5CC;
 }
 &:focus{
-border-bottom: 1px solid #43A047;
+border-bottom: 2px solid #43A047;
 }    
 `
 

@@ -4,6 +4,8 @@ export enum ROUTES {
     ABOUT = '/about',
     BLOG = '/blog',
     DOCS = '/docs',
+    SIGNIN = '/sign_in',
+    INSTALLMETAMASK = '/create_account',
     PRIVACYPOLICY = '/privacy_policy',
     TERMSofSERVICE = '/terms_of_service',
     AUTHENTICATEanITEM = '/authenticate_an_item',

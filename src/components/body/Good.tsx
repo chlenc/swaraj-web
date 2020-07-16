@@ -97,7 +97,7 @@ export default class Good extends React.Component{
                     <Size css = {css`text-decoration: underline;border: 0;`}>Sizing</Size>
                 </SizeChoose>
                 <Price>Price: 49 USD (0.27 ETH)</Price>
-                <Button text="Buy" styles="background:#CBE5CC; border: 0;"/>
+                <Button css = {css`background:#CBE5CC; border: 0;`}>Buy</Button>
             </GoodInfo>
         </Root>;
     }

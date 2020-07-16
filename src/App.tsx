@@ -19,6 +19,8 @@ import ProductInfo from "./components/body/customerCare/ProductInfo";
 import Payment from "./components/body/customerCare/Payment";
 import Delivery from "./components/body/customerCare/Delivery";
 import Returns from "./components/body/customerCare/Returns";
+import SignIn from "./components/body/mainPage/dialogs/SignIn";
+import CreateAccount from "./components/body/mainPage/dialogs/CreateAccount";
 
 
 const history = createBrowserHistory()
@@ -40,6 +42,9 @@ const App: React.FC = () => <Router history={history}>
                 <Route path={ROUTES.DELIVERY} component={Delivery}/>
                 <Route path={ROUTES.RETURNS} component={Returns}/>
             </Switch>
+
+            <Route path={ROUTES.SIGNIN} component={SignIn}/>
+            <Route path={ROUTES.INSTALLMETAMASK} component={CreateAccount}/>
             <Route path="/dialog" component={() =>     <Dialog>Хуй</Dialog>   }/>
             <Footer/>
         </Router>

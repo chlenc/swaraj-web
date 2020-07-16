@@ -23,9 +23,9 @@ color: #4A4B57;
 }
 `
 
-const MenuButton: React.FunctionComponent<IItemProps> = ({href, text}) =>
+const MenuButton: React.FunctionComponent<IItemProps> = ({href, text, styles}) =>
     <Route path={href}>
-        {({match}) => <ItemRoot><Link to={href} css={css`background: ${(match != null) ?  '#EDEDF0': 'none'}`} >{text}</Link></ItemRoot>}
+        {({match}) => <ItemRoot css = {css`${styles}`}><Link to={href} css={css`background: ${(match != null) ?  '#EDEDF0': 'none'}`} >{text}</Link></ItemRoot>}
     </Route>
 
 export default MenuButton;
