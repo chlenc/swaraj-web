@@ -14,6 +14,7 @@ line-height: 114%;
 letter-spacing: 0.054em;
 text-transform: capitalize;
 color: #4A4B57;
+margin-top: 120px;
 margin-bottom: 100px;
 & img{
 width: 30px;

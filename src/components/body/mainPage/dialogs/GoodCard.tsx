@@ -3,7 +3,7 @@ import React from "react";
 import styled from "@emotion/styled";
 import Dialog from "../../../Dialog";
 import good from "../../../../assets/images/good.png"
-import Size from "../../Sixe";
+import Size from "../../Size";
 import {css,jsx} from "@emotion/core";
 import Button from "../../../Button";
 import {ROUTES} from "../../../../ROUTES";

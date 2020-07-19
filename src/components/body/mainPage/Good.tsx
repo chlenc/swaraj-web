@@ -6,7 +6,7 @@ import {css,jsx} from "@emotion/core";
 import Button from "../../Button";
 import {ROUTES} from "../../../ROUTES";
 import {Link} from "react-router-dom";
-import Size from "../Sixe";
+import Size from "../Size";
 
 
 const Root = styled.div`

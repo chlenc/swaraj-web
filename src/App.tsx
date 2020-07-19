@@ -22,6 +22,13 @@ import SignIn from "./components/body/mainPage/dialogs/SignIn";
 import CreateAccount from "./components/body/mainPage/dialogs/CreateAccount";
 import GoodCard from "./components/body/mainPage/dialogs/GoodCard";
 import NewAddress from "./components/body/mainPage/dialogs/NewAddress";
+import MyThings from "./components/body/myWardrobe/myThings/MyThings";
+import ViewHistory from "./components/body/myWardrobe/viewHistory/ViewHistory";
+import ViewWallet from "./components/body/myWardrobe/ViewWallet";
+import Settings from "./components/body/myWardrobe/Settings";
+import Admin from "./components/body/myWardrobe/Admin/Admin";
+import Send from "./components/body/myWardrobe/dialogs/Send";
+import Sent from "./components/body/myWardrobe/dialogs/Sent";
 
 
 const history = createBrowserHistory()
@@ -37,17 +44,26 @@ const App: React.FC = () => <Router history={history}>
                 <Route exact path={ROUTES.PRIVACYPOLICY} component={PrivacyPolicy}/>
                 <Route exact path={ROUTES.TERMSofSERVICE} component={TermsOfService}/>
                 <Route exact path={ROUTES.AUTHENTICATEanITEM} component={AuthenticateAnItem}/>
+
                 <Route path={ROUTES.HOWtoSHOP} component={HowToShop}/>
                 <Route path={ROUTES.PRODUCTINFO} component={ProductInfo}/>
                 <Route path={ROUTES.PAYMENT} component={Payment}/>
                 <Route path={ROUTES.DELIVERY} component={Delivery}/>
                 <Route path={ROUTES.RETURNS} component={Returns}/>
+
+                <Route path={ROUTES.MYTHINGS} component={MyThings}/>
+                <Route path={ROUTES.VIEWHISTORY} component={ViewHistory}/>
+                <Route path={ROUTES.VIEWWALLET} component={ViewWallet}/>
+                <Route path={ROUTES.SETTINGS} component={Settings}/>
+                <Route path={ROUTES.ADMIN} component={Admin}/>
             </Switch>
 
             <Route path={ROUTES.SIGNIN} component={SignIn}/>
             <Route path={ROUTES.INSTALLMETAMASK} component={CreateAccount}/>
             <Route path={ROUTES.BUY} component={GoodCard}/>
-            <Route path={ROUTES.NEWADRESS} component={NewAddress}/>
+            <Route path={ROUTES.SEND} component={Send}/>
+            <Route path={ROUTES.SENT} component={Sent}/>
+
             <Footer/>
         </Router>
 export default App;
