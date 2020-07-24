@@ -1,18 +1,26 @@
 import React from "react";
 import styled from "@emotion/styled";
 
-interface IProps {
-    text: string
-}
 
-const Root = styled.input`
-width: 316px;
+const Input = styled.input`
+width: 22vw;
+padding-bottom: 5px;
+font-size: 12px; 
+border: none;
+border-bottom: 1px solid rgba(0, 0, 0, 0.36);
+outline: none;
+color: #4A4B57;
+transition: all .15s ease;
+
+::placeholder{
+font-family: Oxygen Mono, monospace;
+}
+&:hover{
+border-bottom: 2px solid #CBE5CC;
+}
+&:focus{
+border-bottom: 2px solid #43A047;
+}    
 `
 
-export default class Input extends React.Component<IProps> {
-
-    render(): React.ReactNode {
-        return <Root placeholder={this.props.text}/>;
-    }
-}
-
+export default Input

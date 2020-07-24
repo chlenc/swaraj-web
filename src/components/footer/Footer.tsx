@@ -1,12 +1,25 @@
 import React from "react";
 import styled from "@emotion/styled";
 import MenuButton from "../MenuButton";
+import Button from "../Button";
+import Input from "../Input";
+import {ROUTES} from "../../ROUTES";
 
 
 const Root = styled.div`
 display: flex;
 font-size: 12px;
 justify-content: center;
+line-height: 114%;
+letter-spacing: 0.054em;
+text-transform: capitalize;
+color: #4A4B57;
+margin-top: 120px;
+margin-bottom: 100px;
+& img{
+width: 30px;
+height: auto;
+}
 `
 const Menu = styled.div`
 display: flex;
@@ -32,18 +45,27 @@ text-transform: capitalize;
 text-decoration: none;
 color: #4A4B57;
 `
+const Subscribe = styled.div`
+display: flex;
+`
+const Email = styled.div`
+margin: 16px 34px 0 16px;
+`
 
 
 const Footer: React.FC = () =>
     <Root>
         <Menu>
             <MenuColumn>
-                <MenuButton href='/Privacy Policy' text='Privacy Policy'/>
-                <MenuButton href='/Terms of Service' text='Terms of Service'/>
+                <MenuButton href={ROUTES.PRIVACYPOLICY} text='Privacy Policy'/>
+                <MenuButton href={ROUTES.TERMSofSERVICE} text='Terms of Service'/>
             </MenuColumn>
             <MenuColumn>
-                <MenuButton href='/Authenticate An Item' text='Authenticate An Item'/>
-                <MenuButton href='/Customer Care' text='Customer Care'/>
+                <MenuButton href={ROUTES.AUTHENTICATEanITEM} text='Authenticate An Item'/>
+                <MenuButton href={ROUTES.DELIVERY} text='Customer Care'/>
+                <a href="https://github.com/chlenc/swaraj-web">
+                    <img src="https://cdn.iconscout.com/icon/free/png-256/github-153-675523.png"/>
+                </a>
             </MenuColumn>
         </Menu>
         <FeedBackBar>
@@ -51,9 +73,11 @@ const Footer: React.FC = () =>
                 <SocNet href='https://twitter.com/'>Twitter</SocNet>
                 <SocNet href='https://instagram.com/'>Instagram</SocNet>
             </SocNetBar>
-
+            <Subscribe>
+                <Email><Input placeholder="Enter your email" /></Email>
+                <Button>Subscribe</Button>
+            </Subscribe>
         </FeedBackBar>
-
     </Root>
 
 export default Footer;

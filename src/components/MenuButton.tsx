@@ -1,36 +1,33 @@
+/** @jsx jsx */
 import React from "react";
 import styled from "@emotion/styled";
-import {Link} from "react-router-dom";
+import {Link, Route} from "react-router-dom";
+import {css, jsx} from "@emotion/core";
 
 
 interface IItemProps {
     href: string
     text: string
+    styles?: string
 }
 
 const ItemRoot = styled.div`
 display: flex;
 flex-direction: row;
+cursor: pointer;
+&>*{
 border-radius: 4px;
 padding: 12px 16px;
-cursor: pointer;
-
-line-height: 114%;
-letter-spacing: 0.054em;
-text-transform: capitalize;
+text-decoration: none;
 color: #4A4B57;
+}
 `
 
-const MenuButton: React.FunctionComponent<IItemProps> = ({href, text}) =>
-    <Link  to={href}>{text}</Link>
-
-// const MenuButton: React.FunctionComponent<IItemProps> = inject('historyStore')(observer(
-//     (props) => {
-//         const handlePush = (href: string) => props.historyStore?.history.push(href)
-//         return <ItemRoot onClick={() => handlePush(props.href)}>
-//             {props.text}
-//         </ItemRoot>
-//     }))
+const MenuButton: React.FunctionComponent<IItemProps> = ({href, text, styles}) =>
+    <Route path={href}>
+        {({match}) => <ItemRoot css = {css`${styles}`}><Link to={href} css={css`background: ${(match != null) ?  '#EDEDF0': 'none'}`} >{text}</Link></ItemRoot>}
+    </Route>
 
 export default MenuButton;
+
 

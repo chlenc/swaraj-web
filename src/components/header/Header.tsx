@@ -2,11 +2,18 @@ import React from "react";
 import styled from "@emotion/styled";
 import MenuButton from "../MenuButton";
 import logo from '../../assets/images/logo.svg'
+import {ROUTES} from "../../ROUTES";
+import {Link} from "react-router-dom";
+import Button from "../Button";
 
 const Root = styled.div`
 display: flex;
 flex-direction: column;
 align-items: center;
+line-height: 114%;
+    letter-spacing: 0.054em;
+    text-transform: capitalize;
+    color: #4A4B57;
 `
 const Menu = styled.div`
 padding-top: 59px;
@@ -17,27 +24,22 @@ margin: -13px;
  margin: 13px;
  }
 `
-const SignIn = styled.div`
-border: 1px solid #4A4B57; 
-box-sizing: border-box;
-border-radius: 4px;
-`
 const Logo = styled.img`
-margin: 32px;
-background: ${logo} center no-repeat;
-background-size: contain;//TODO FIX
+margin-top: 32px;
 `
 
 const Header: React.FC = () =>
     <Root>
         <Menu>
-            <MenuButton href="/FAQ" text="FAQ"/>
-            <MenuButton href="/About" text="About"/>
-            <MenuButton href="/Blog" text="Blog"/>
-            <MenuButton href="/Docs" text="Docs"/>
-            <SignIn><MenuButton href="/Sign_In" text="Sign In"/> </SignIn>
+            <MenuButton href={ROUTES.FAQ} text="FAQ"/>
+            <MenuButton href={ROUTES.ABOUT} text="About"/>
+            <MenuButton href={ROUTES.BLOG} text="Blog"/>
+            <MenuButton href={ROUTES.DOCS} text="Docs"/>
+            <Button>
+                <Link to={ROUTES.SIGNIN}>Sign In</Link>
+            </Button>
         </Menu>
-        <Logo />
+        <Link to={ROUTES.ROOT}><Logo src={logo} alt="Logo"/></Link>
     </Root>
 
 export default Header;
