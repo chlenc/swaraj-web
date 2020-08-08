@@ -3,7 +3,13 @@ import styled from "@emotion/styled";
 import good from '../../../../assets/images/good.png'
 import SizedBox from "../../../SizedBox";
 import Button from "../../../Button";
+import AdminStore, {IItem} from "../../../../stores/AdminStore";
+import {inject, observer} from "mobx-react";
 
+interface IOneItem {
+    item: IItem;
+    adminStore?: AdminStore;
+}
 const Root = styled.div`
 display: flex;
 margin-bottom: 66px;
@@ -27,20 +33,18 @@ margin: -8px;
 margin: 8px;
 }
 `
-const PublishedItem: React.FC = () =><Root>
+
+const PublishedItem: React.FC<IOneItem> = observer((adminStore, item) =><Root>
     <Item src ={good} alt = "Good"/>
     <Info>
-        <div>Title: Swaraj #3333 tee   </div>
+        <div>Title: {item.title}  </div>
         <SizedBox height={20}/>
-        <Description>Description: Cras mattis consectetur purus sit amet fermentum.
-            Cras justo odio, dapibus ac facilisis in, egestas eget quam.
-            Morbi leo risus, porta ac consectetur ac, vestibulum at eros.
-            Praesent commodo cursus magna, vel scelerisque nisl consectetur et.
-            Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor.
+        <Description>
+            {item.description}
         </Description>
         <SizedBox height={20}/>
         <div>
-            Quantity: 499 (32)
+            Quantity: {item.quantity}
         </div>
         <SizedBox height={20}/>
         <ButtonBox>
@@ -50,6 +54,6 @@ const PublishedItem: React.FC = () =><Root>
             <Button>View Smart Contract</Button>
         </ButtonBox>
     </Info>
-</Root>
+</Root>)
 
 export default PublishedItem;
