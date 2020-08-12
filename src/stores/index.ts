@@ -1,2 +1,4 @@
 import { RootStore } from "./RootStore";
-export { RootStore };
+import AdminStore from './AdminStore'
+
+export { RootStore,AdminStore };

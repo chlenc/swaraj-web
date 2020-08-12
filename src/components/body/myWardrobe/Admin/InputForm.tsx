@@ -73,7 +73,7 @@ color: #4A4B57;
 outline: none;
 }
 `
-const InputForm: React.FC<IItems> = observer(({adminStore}) => {
+const InputForm: React.FC<IItems> = inject('adminStore')(observer(({adminStore}) => {
     const [title, setTitle] = useState<string>(''),
           [description, setDescription] = useState<string>(''),
           [quantity, setQuantity] = useState<string>(''),
@@ -129,6 +129,6 @@ const InputForm: React.FC<IItems> = observer(({adminStore}) => {
                     type="submit" >Publish Item</Button>
         </Wrapper>
     </Root>
-})
+}))
 
 export default InputForm;

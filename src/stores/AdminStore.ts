@@ -2,8 +2,7 @@ import { RootStore } from "./index";
 import { SubStore } from "./SubStore";
 import { database } from "../utils/firebase";
 import { action, observable } from "mobx";
-import {Simulate} from "react-dom/test-utils";
-import error = Simulate.error;
+
 
 export interface IItem {
     title: string;

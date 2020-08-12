@@ -9,12 +9,11 @@ import Admin from "./components/body/myWardrobe/Admin/Admin";
 
 const history = createBrowserHistory()
 
-const App: React.FC = () => <Router history={history}>
-            <Header/>
-            <Switch>
-                <Route path={ROUTES.ADMIN} component={Admin}/>
-            </Switch>
 
+const App: React.FC = () => {
+    return <Router history={history}>
+            <Header/>
+            <Admin/>
             <Footer/>
-        </Router>
+        </Router>}
 export default App;

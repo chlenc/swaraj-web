@@ -2,6 +2,7 @@ import firebase from 'firebase/app';
 import 'firebase/storage';
 import 'firebase/database';
 
+require('dotenv').config()
 // Initialize Firebase
 const config = {
     apiKey: process.env.REACT_APP_API_KEY,
@@ -12,7 +13,7 @@ const config = {
     messagingSenderId: process.env.REACT_APP_MESSAGING_SENDER_ID,
 };
 firebase.initializeApp(config);
-
+console.log(config);
 const database = firebase.database();
 
 export {
