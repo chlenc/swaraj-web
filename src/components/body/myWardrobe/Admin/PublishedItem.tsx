@@ -3,12 +3,12 @@ import styled from "@emotion/styled";
 import good from '../../../../assets/images/good.png'
 import SizedBox from "../../../SizedBox";
 import Button from "../../../Button";
-import AdminStore, {IItem} from "../../../../stores/AdminStore";
+import DataStore, {IItem} from "../../../../stores/DataStore";
 import {inject, observer} from "mobx-react";
 
 interface IOneItem {
     item: IItem;
-    adminStore?: AdminStore;
+    adminStore?: DataStore;
 }
 const Root = styled.div`
 display: flex;

@@ -1,11 +1,11 @@
-import {AdminStore} from "./index";
+import {DataStore} from "./index";
 
 export class RootStore {
 
-  public dataStore: AdminStore;
+  public dataStore: DataStore;
 
   constructor(initState: any) {
-    this.dataStore = new AdminStore(
+    this.dataStore = new DataStore(
         this,
         initState && initState.dataStore ? initState.dataStore : null
     );

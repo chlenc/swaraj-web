@@ -15,7 +15,7 @@ export interface IItem {
 }
 
 
-export default class AdminStore extends SubStore {
+export default class DataStore extends SubStore {
     @observable item: { [key: string]: IItem } = {};
 
     constructor(rootStore: RootStore, initState: any) {
@@ -25,7 +25,7 @@ export default class AdminStore extends SubStore {
 
     @action syncGood = async () => {
         database
-            .ref("goods")
+            .ref("good")
             .once("value")
             .then((snapshot) => {
                 try {

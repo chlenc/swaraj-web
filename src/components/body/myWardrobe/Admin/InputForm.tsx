@@ -1,15 +1,16 @@
 /** @jsx jsx */
 import React, {useState} from "react";
 import styled from "@emotion/styled";
+import { useObserver } from 'mobx-react'
 import good from '../../../../assets/images/good.png'
 import Input from "../../../Input";
 import Button from "../../../Button";
 import {css, jsx} from "@emotion/core";
-import AdminStore from "../../../../stores/AdminStore"
-import {inject, observer} from "mobx-react";
+import DataStore from "../../../../stores/DataStore"
+import {useStores} from "../../../../hooks/use-stores";
 
 interface IItems {
-    adminStore?: AdminStore
+    adminStore?: DataStore
 }
 const Root = styled.form`
 `
@@ -73,7 +74,9 @@ color: #4A4B57;
 outline: none;
 }
 `
-const InputForm: React.FC<IItems> = inject('adminStore')(observer(({adminStore}) => {
+const InputForm: React.FC<IItems> = () => {
+    const {dataStore: adminStore} = useStores()
+
     const [title, setTitle] = useState<string>(''),
           [description, setDescription] = useState<string>(''),
           [quantity, setQuantity] = useState<string>(''),
@@ -86,7 +89,7 @@ const InputForm: React.FC<IItems> = inject('adminStore')(observer(({adminStore})
         adminStore?.addItem({title, description, quantity, vrPreview, realWorldPreview, png, assetPackage})
     }
 
-    return <Root onSubmit = {handleSubmit}>
+    return useObserver(() =><Root onSubmit = {handleSubmit}>
         <Wrapper>
             <Title>Create New Item</Title>
             <AddItem>
@@ -128,7 +131,7 @@ const InputForm: React.FC<IItems> = inject('adminStore')(observer(({adminStore})
             <Button css = {css`border: 0; background: #CBE5CC; margin: 40px 0 60px 0;`}
                     type="submit" >Publish Item</Button>
         </Wrapper>
-    </Root>
-}))
+    </Root>)
+}
 
 export default InputForm;
