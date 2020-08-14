@@ -2,17 +2,18 @@
 import React, {useState} from "react";
 import styled from "@emotion/styled";
 import { useObserver } from 'mobx-react'
-import good from '../../../../assets/images/good.png'
-import Input from "../../../Input";
-import Button from "../../../Button";
+import good from '../../../assets/images/good.png'
+import Input from "../../Input";
+import Button from "../../Button";
 import {css, jsx} from "@emotion/core";
-import DataStore from "../../../../stores/DataStore"
-import {useStores} from "../../../../hooks/use-stores";
+import DataStore from "../../../stores/DataStore"
+import {useStores} from "../../../hooks/use-stores";
+import {storage} from "../../../utils/firebase";
 
 interface IItems {
     adminStore?: DataStore
 }
-const Root = styled.form`
+const Root = styled.div`
 `
 const Wrapper = styled.div`
 display: flex;
@@ -80,13 +81,26 @@ const InputForm: React.FC<IItems> = () => {
     const [title, setTitle] = useState<string>(''),
           [description, setDescription] = useState<string>(''),
           [quantity, setQuantity] = useState<string>(''),
-          [vrPreview, setVRPreview] = useState<string>(''),
-          [realWorldPreview, setRealWorldPreview] = useState<string>(''),
-          [png, setPNG] = useState<string>(''),
-          [assetPackage, setAssetPackage] = useState<string>('');
+          [vrPreview, setVRPreview] = useState<any>(null),
+          [realWorldPreview, setRealWorldPreview] = useState<any>(null),
+          [png, setPNG] = useState<any>(null),
+          [assetPackage, setAssetPackage] = useState<any>(null),
+          [vrPreviewUrl, setVRPreviewUrl] = useState<string>(''),
+          [realWorldPreviewUrl, setRealWorldPreviewUrl] = useState<string>(''),
+          [pngUrl, setPNGUrl] = useState<string>(''),
+          [assetPackageUrl, setAssetPackageUrl] = useState<string>('');
 
-    const handleSubmit = (e:any) => {
-        adminStore?.addItem({title, description, quantity, vrPreview, realWorldPreview, png, assetPackage})
+    const handleSubmit = async (e:any) => {
+        console.log(vrPreview[0].name)
+        await  storage.ref(`goods`).put(vrPreview[0])
+            .on("state_changed",
+                snapshot => {},
+                error => {console.log(error)},
+                ()=> storage.ref("goods")
+                    .getDownloadURL()
+                    .then((url)=> console.log(url)))
+       // await adminStore?.addImage(vrPreview)
+        // adminStore?.addItem({title, description, quantity, vrPreview, realWorldPreview, png, assetPackage})
     }
 
     return useObserver(() =><Root onSubmit = {handleSubmit}>
@@ -104,25 +118,26 @@ const InputForm: React.FC<IItems> = () => {
                         <Picker>
                             <input type="file" name="file"
                                    id = "3d" className="inputfile"
-                                   onChange = {(e)=> setVRPreview(e.target.value)}/>
+                                   onChange = {(e)=> setVRPreview(e.target.files)}/>
                             <label htmlFor="3d">Upload 3d Preview</label>
+                            <button onClick = {handleSubmit}>tik</button>
                         </Picker>
                         <Picker>
                             <input type="file" name="file"
                                    id = "preview" className="inputfile"
-                                   onChange = {(e)=> setRealWorldPreview(e.target.value)}/>
+                                   onChange = {(e)=> setRealWorldPreview(e.target.files)}/>
                             <label htmlFor="preview">Upload Real World Preview</label>
                         </Picker>
                         <Picker>
                             <input type="file" name="file"
                                    id = "png" className="inputfile"
-                                   onChange = {(e)=> setPNG(e.target.value)}/>
+                                   onChange = {(e)=> setPNG(e.target.files)}/>
                             <label htmlFor="png">Upload PNG File</label>
                         </Picker>
                         <Picker>
                             <input type="file" name="file"
                                    id = "asset" className="inputfile"
-                                   onChange = {(e)=> setAssetPackage(e.target.value)}/>
+                                   onChange = {(e)=> setAssetPackage(e.target.files)}/>
                             <label htmlFor="asset">Upload Asset Package</label>
                         </Picker>
                     </ButtonBox>

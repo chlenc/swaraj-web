@@ -1,9 +1,9 @@
 import React from "react";
 import styled from "@emotion/styled";
-import good from '../../../../assets/images/good.png'
-import SizedBox from "../../../SizedBox";
-import Button from "../../../Button";
-import DataStore, {IItem} from "../../../../stores/DataStore";
+import good from '../../../assets/images/good.png'
+import SizedBox from "../../SizedBox";
+import Button from "../../Button";
+import DataStore, {IItem} from "../../../stores/DataStore";
 import {inject, observer} from "mobx-react";
 
 interface IOneItem {

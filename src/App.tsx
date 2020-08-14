@@ -1,18 +1,14 @@
 import React from 'react';
 import {Router, Switch, Route} from 'react-router-dom'
 import {createBrowserHistory} from "history";
-import {ROUTES} from './ROUTES'
-import MainPage from './components/body/mainPage/MainPage'
-import Header from "./components/header/Header";
 import Footer from "./components/footer/Footer";
-import Admin from "./components/body/myWardrobe/Admin/Admin";
+import Admin from "./components/body/Admin/Admin";
 
 const history = createBrowserHistory()
 
 
 const App: React.FC = () => {
     return <Router history={history}>
-            <Header/>
             <Admin/>
             <Footer/>
         </Router>}

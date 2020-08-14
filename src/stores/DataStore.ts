@@ -1,7 +1,8 @@
 import { RootStore } from "./index";
 import { SubStore } from "./SubStore";
-import { database } from "../utils/firebase";
+import {database, storage} from "../utils/firebase";
 import { action, observable } from "mobx";
+
 
 
 export interface IItem {
@@ -25,7 +26,7 @@ export default class DataStore extends SubStore {
 
     @action syncGood = async () => {
         database
-            .ref("good")
+            .ref("goods")
             .once("value")
             .then((snapshot) => {
                 try {
@@ -36,18 +37,52 @@ export default class DataStore extends SubStore {
                 }
             })
             .catch((e) => console.error(e));
-    };
+    }
+
+    // @action syncImage = async () => {
+    //     //let image = new Blob()
+    //     storage
+    //         .ref(`goods/${Image.name}`)
+    //         .put("Blob")
+    //         .then((snapshot) => {
+    //             try {
+    //                 const item = snapshot.val();
+    //                 this.item = item;
+    //             } catch (e) {
+    //                 console.error(e);
+    //             }
+    //         })
+    //         .catch((e) => console.error(e));
+    //         // .on("state_changed",
+    //         //     snapshot => {},
+    //         //     error => {console.log(error)},
+    //         //     ()=> storage.ref("goods")
+    //         //         .child(Image.name)
+    //         //         .getDownloadURL()
+    //         //         .then((url)=> ))
+
+   // };
 
     addItem = async (item: IItem) => new Promise (async (resolve) =>{
-        database.ref(`good/`).push(item, (error) => resolve(error))
+        database.ref(`goods/`).push(item, (error) => resolve(error))
         await this.syncGood()
     } );
     updateItem = async (item: IItem, id: string) => new Promise (async (resolve) =>{
-        database.ref(`good/${id}`).update(item, (error) => resolve(error))
+        database.ref(`goods/${id}`).update(item, (error) => resolve(error))
         await this.syncGood()
     });
     removeItem = async (id: string) => new Promise(async (resolve) => {
         database.ref(`goods/${id}`).remove((error) => resolve(error))
         await this.syncGood()
     });
+    addImage = async (item: Blob|File) => new Promise (async (resolve) =>{
+      await  storage.ref(`goods`).put(item)
+            .on("state_changed",
+             snapshot => {},
+             error => {console.log(error)},
+             ()=> storage.ref("goods")
+                 .child(File.name)
+                 .getDownloadURL()
+                 .then((url)=> console.log(url)))
+    } );
 }
