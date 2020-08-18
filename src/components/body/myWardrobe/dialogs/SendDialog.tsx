@@ -21,7 +21,7 @@ margin: -16px;
 margin: 16px;
 }
 `
-const Title =styled.div`
+const Title = styled.div`
 `
 const Balance = styled.div`
 margin-top: 4px;
@@ -35,23 +35,24 @@ margin: -5px;
 margin: 5px;
 }
 `
-const Send: React.FC = () =><Dialog>
-    <Root>
-        <Title>
-            Your Balance
-        </Title>
-        <Balance>
-            0,446423 ETH (~123 USD)
-        </Balance>
-        <Input placeholder = "Amount"/>
-        <Input placeholder = "To Address"/>
-        <ButtonBox>
-            <Button>
-                <Link to={ROUTES.ROOT}>Cancel</Link>
-            </Button>
-            <Button>Send</Button>
-        </ButtonBox>
-    </Root>
-</Dialog>
+const Send: React.FC = () =>
+    <Dialog>
+        <Root>
+            <Title>
+                Your Balance
+            </Title>
+            <Balance>
+                0,446423 ETH (~123 USD)
+            </Balance>
+            <Input placeholder="Amount"/>
+            <Input placeholder="To Address"/>
+            <ButtonBox>
+                <Button>
+                    <Link to={ROUTES.ROOT}>Cancel</Link>
+                </Button>
+                <Button>Send</Button>
+            </ButtonBox>
+        </Root>
+    </Dialog>
 
 export default Send;
