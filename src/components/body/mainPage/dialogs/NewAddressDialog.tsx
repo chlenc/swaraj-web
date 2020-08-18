@@ -1,30 +1,27 @@
 import React from "react";
 import styled from "@emotion/styled";
 import Dialog from "../../../Dialog";
+import SizedBox from "../../../SizedBox";
 import Button from "../../../Button";
-import Input from "../../../Input";
 import {ROUTES} from "../../../../ROUTES";
 import {Link} from "react-router-dom";
+import Input from "../../../Input";
 
 const Root = styled.div`
 display: flex;
 flex-direction: column;
 align-items: center;
-text-align: center;
 padding-top: 5px;
-font-family: Roboto Mono,monospace;
-font-size: 14px;
 font-weight: normal;
 line-height: 16px;
-margin: -16px;
+margin: -17px;
 &>*{
-margin: 16px;
+margin: 17px;
 }
 `
 const Title =styled.div`
-`
-const Balance = styled.div`
-margin-top: 4px;
+font-family: Roboto Mono,monospace;
+font-size: 14px;
 `
 const ButtonBox = styled.div`
 padding-top: 25px;
@@ -35,23 +32,27 @@ margin: -5px;
 margin: 5px;
 }
 `
-const Send: React.FC = () =><Dialog>
+const NewAddressDialog: React.FC = () =>
+    <Dialog>
     <Root>
         <Title>
-            Your Balance
+            New delivery address
         </Title>
-        <Balance>
-            0,446423 ETH (~123 USD)
-        </Balance>
-        <Input placeholder = "Amount"/>
-        <Input placeholder = "To Address"/>
+        <Input placeholder = "Full Name"/>
+        <Input placeholder = "Street Address"/>
+        <Input placeholder = "Town"/>
+        <Input placeholder = "State"/>
+        <Input placeholder = "Country"/>
+        <Input placeholder = "Postcode"/>
+        <Input placeholder = "Phone Number"/>
         <ButtonBox>
             <Button>
                 <Link to={ROUTES.ROOT}>Cancel</Link>
             </Button>
-            <Button>Send</Button>
+            <Button>Create</Button>
         </ButtonBox>
+
     </Root>
 </Dialog>
 
-export default Send;
+export default NewAddressDialog;

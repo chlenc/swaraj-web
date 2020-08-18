@@ -7,7 +7,6 @@ import Header from "./components/header/Header";
 import Footer from "./components/footer/Footer";
 import About from "./components/body/topMenu/About/About";
 import FAQ from "./components/body/topMenu/FAQ/FAQ";
-import Dialog from "./components/Dialog";
 import Blog from "./components/body/topMenu/blog/Blog";
 import Docs from "./components/body/topMenu/docs/Docs";
 import AuthenticateAnItem from "./components/body/buttomMenu/authenticateAnItem/AuthenticateAnItem";
@@ -18,17 +17,16 @@ import ProductInfo from "./components/body/buttomMenu/customerCare/ProductInfo";
 import Payment from "./components/body/buttomMenu/customerCare/Payment";
 import Delivery from "./components/body/buttomMenu/customerCare/Delivery";
 import Returns from "./components/body/buttomMenu/customerCare/Returns";
-import SignIn from "./components/body/mainPage/dialogs/SignIn";
-import CreateAccount from "./components/body/mainPage/dialogs/CreateAccount";
-import GoodCard from "./components/body/mainPage/dialogs/GoodCard";
-import NewAddress from "./components/body/mainPage/dialogs/NewAddress";
 import MyThings from "./components/body/myWardrobe/myThings/MyThings";
 import ViewHistory from "./components/body/myWardrobe/viewHistory/ViewHistory";
 import ViewWallet from "./components/body/myWardrobe/ViewWallet";
 import Settings from "./components/body/myWardrobe/Settings";
 import Admin from "./components/body/myWardrobe/Admin/Admin";
-import Send from "./components/body/myWardrobe/dialogs/Send";
-import Sent from "./components/body/myWardrobe/dialogs/Sent";
+import SendDialog from "./components/body/myWardrobe/dialogs/SendDialog";
+import SentDialog from "./components/body/myWardrobe/dialogs/SentDialog";
+import SignInDialog from "./components/body/mainPage/dialogs/SignInDialog";
+import CreateAccountDialog from "./components/body/mainPage/dialogs/CreateAccountDialog";
+import GoodCardDialog from "./components/body/mainPage/dialogs/GoodCardDialog";
 
 
 const history = createBrowserHistory()
@@ -58,11 +56,11 @@ const App: React.FC = () => <Router history={history}>
                 <Route path={ROUTES.ADMIN} component={Admin}/>
             </Switch>
 
-            <Route path={ROUTES.SIGNIN} component={SignIn}/>
-            <Route path={ROUTES.INSTALLMETAMASK} component={CreateAccount}/>
-            <Route path={ROUTES.BUY} component={GoodCard}/>
-            <Route path={ROUTES.SEND} component={Send}/>
-            <Route path={ROUTES.SENT} component={Sent}/>
+            <Route path={ROUTES.SIGNIN} component={SignInDialog}/>
+            <Route path={ROUTES.INSTALLMETAMASK} component={CreateAccountDialog}/>
+            <Route path={ROUTES.BUY} component={GoodCardDialog}/>
+            <Route path={ROUTES.SEND} component={SendDialog}/>
+            <Route path={ROUTES.SENT} component={SentDialog}/>
 
             <Footer/>
         </Router>

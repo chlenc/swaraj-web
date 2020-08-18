@@ -2,7 +2,6 @@ import React from "react";
 import styled from "@emotion/styled";
 import Dialog from "../../../Dialog";
 import Button from "../../../Button";
-import Input from "../../../Input";
 import {ROUTES} from "../../../../ROUTES";
 import {Link} from "react-router-dom";
 
@@ -25,7 +24,7 @@ const Title =styled.div`
 `
 const Text = styled.div`
 `
-const Sent: React.FC = () =><Dialog>
+const SentDialog: React.FC = () =><Dialog>
     <Root>
         <Title>
             Your transaction has started
@@ -40,4 +39,4 @@ const Sent: React.FC = () =><Dialog>
     </Root>
 </Dialog>
 
-export default Sent;
+export default SentDialog;
