@@ -1,18 +1,18 @@
 /** @jsx jsx */
 import React, {useState} from "react";
 import styled from "@emotion/styled";
-import { useObserver } from 'mobx-react'
+import {useObserver} from 'mobx-react'
 import good from '../../../assets/images/good.png'
 import Input from "../../Input";
 import Button from "../../Button";
 import {css, jsx} from "@emotion/core";
-import DataStore from "../../../stores/DataStore"
+import WearsStore from "../../../stores/WearsStore"
 import {useStores} from "../../../hooks/use-stores";
-import {storage} from "../../../utils/firebase";
 
 interface IItems {
-    adminStore?: DataStore
+    adminStore?: WearsStore
 }
+
 const Root = styled.div`
 `
 const Wrapper = styled.div`
@@ -75,78 +75,90 @@ color: #4A4B57;
 outline: none;
 }
 `
+
+const fileChangeWrapper = (f: (f: File) => void) => (e: React.ChangeEvent<HTMLInputElement>) =>
+    e.target.files && e.target.files[0] && f(e.target.files[0])
+
+
 const InputForm: React.FC<IItems> = () => {
-    const {dataStore: adminStore} = useStores()
+    const {wearsStore: adminStore} = useStores()
 
     const [title, setTitle] = useState<string>(''),
-          [description, setDescription] = useState<string>(''),
-          [quantity, setQuantity] = useState<string>(''),
+        [description, setDescription] = useState<string>(''),
+        [quantity, setQuantity] = useState<string>(''),
 
-          [vrPreview, setVRPreview] = useState<any>(null),
-          [realWorldPreview, setRealWorldPreview] = useState<any>(null),
-          [png, setPNG] = useState<any>(null),
-          [assetPackage, setAssetPackage] = useState<any>(null),
+        [vrPreview, setVRPreview] = useState<File | null>(null),
+        [realWorldPreview, setRealWorldPreview] = useState<File | null>(null),
+        [png, setPNG] = useState<File | null>(null),
+        [assetPackage, setAssetPackage] = useState<File | null>(null),
 
-          [vrPreviewUrl, setVRPreviewUrl] = useState<string>(''),
-          [realWorldPreviewUrl, setRealWorldPreviewUrl] = useState<string>(''),
-          [pngUrl, setPNGUrl] = useState<string>(''),
-          [assetPackageUrl, setAssetPackageUrl] = useState<string>('');
+        [vrPreviewUrl, setVRPreviewUrl] = useState<string>(''),
+        [realWorldPreviewUrl, setRealWorldPreviewUrl] = useState<string>(''),
+        [pngUrl, setPNGUrl] = useState<string>(''),
+        [assetPackageUrl, setAssetPackageUrl] = useState<string>('');
 
-    const handleSubmit = async (e:any) => {
-        console.log(vrPreview)
-        await  storage.ref(`goods`).put(vrPreview)
-            .on("state_changed",
-                snapshot => {},
-                error => {console.log(error)},
-                ()=> storage.ref("goods")
-                    .getDownloadURL()
-                    .then((url)=> console.log(url)))
-       // await adminStore?.addImage(vrPreview)
+    const handleSubmit = async (e: any) => {
+        // console.log(vrPreview)
+        // await storage.ref(`goods`).put(vrPreview)
+        //     .on("state_changed",
+        //         snapshot => {
+        //         },
+        //         error => {
+        //             console.log(error)
+        //         },
+        //         () => storage.ref("goods")
+        //             .getDownloadURL()
+        //             .then((url) => console.log(url)))
+        if(!vrPreview){
+            //todo show invalid form message
+            return
+        }
+        // const downloadUrl = await adminStore?.addFile(vrPreview)
         // adminStore?.addItem({title, description, quantity, vrPreview, realWorldPreview, png, assetPackage})
     }
 
-    return useObserver(() =><Root onSubmit = {handleSubmit}>
+    return useObserver(() => <Root onSubmit={handleSubmit}>
         <Wrapper>
             <Title>Create New Item</Title>
             <AddItem>
-                <ItemImg src={good} alt = 'Good'/>
+                <ItemImg src={good} alt='Good'/>
                 <Info>
                     <InputBox>
-                        <Input placeholder = "Enter title" onChange = {(e)=> setTitle(e.target.value)}/>
-                        <Input placeholder = "Enter description" onChange = {(e)=> setDescription(e.target.value)}/>
-                        <Input placeholder = "Enter quantity" onChange = {(e)=> setQuantity(e.target.value)}/>
+                        <Input placeholder="Enter title" onChange={(e) => setTitle(e.target.value)}/>
+                        <Input placeholder="Enter description" onChange={(e) => setDescription(e.target.value)}/>
+                        <Input placeholder="Enter quantity" onChange={(e) => setQuantity(e.target.value)}/>
                     </InputBox>
                     <ButtonBox>
                         <Picker>
                             <input type="file" name="file"
-                                   id = "3d" className="inputfile"
-                                   onChange = {(e:any)=> setVRPreview(e.target.files[0])}/>
+                                   id="3d" className="inputfile"
+                                   onChange={fileChangeWrapper(setVRPreview)}/>
                             <label htmlFor="3d">Upload 3d Preview</label>
-                            <button onClick = {handleSubmit}>tik</button>
+                            <button onClick={handleSubmit}>tik</button>
                         </Picker>
                         <Picker>
                             <input type="file" name="file"
-                                   id = "preview" className="inputfile"
-                                   onChange = {(e)=> setRealWorldPreview(e.target.files)}/>
+                                   id="preview" className="inputfile"
+                                   onChange={fileChangeWrapper(setRealWorldPreview)}/>
                             <label htmlFor="preview">Upload Real World Preview</label>
                         </Picker>
                         <Picker>
                             <input type="file" name="file"
-                                   id = "png" className="inputfile"
-                                   onChange = {(e)=> setPNG(e.target.files)}/>
+                                   id="png" className="inputfile"
+                                   onChange={fileChangeWrapper(setPNG)}/>
                             <label htmlFor="png">Upload PNG File</label>
                         </Picker>
                         <Picker>
                             <input type="file" name="file"
-                                   id = "asset" className="inputfile"
-                                   onChange = {(e)=> setAssetPackage(e.target.files)}/>
+                                   id="asset" className="inputfile"
+                                   onChange={fileChangeWrapper(setAssetPackage)}/>
                             <label htmlFor="asset">Upload Asset Package</label>
                         </Picker>
                     </ButtonBox>
                 </Info>
             </AddItem>
-            <Button css = {css`border: 0; background: #CBE5CC; margin: 40px 0 60px 0;`}
-                    type="submit" >Publish Item</Button>
+            <Button css={css`border: 0; background: #CBE5CC; margin: 40px 0 60px 0;`}
+                    type="submit">Publish Item</Button>
         </Wrapper>
     </Root>)
 }

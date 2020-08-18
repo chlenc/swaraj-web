@@ -1,4 +1,4 @@
 import { RootStore } from "./RootStore";
-import DataStore from './DataStore'
+import WearsStore from './WearsStore'
 
-export { RootStore,DataStore };
+export { RootStore,WearsStore };
