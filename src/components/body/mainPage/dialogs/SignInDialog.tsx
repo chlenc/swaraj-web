@@ -26,7 +26,7 @@ font-size: 14px;
 const Text = styled.div`
 font-size: 12px;
 `
-const SignIn: React.FC = () =>
+const SignInDialog: React.FC = () =>
     <Dialog>
     <Root>
         <Title>
@@ -46,4 +46,4 @@ const SignIn: React.FC = () =>
     </Root>
 </Dialog>
 
-export default SignIn;
+export default SignInDialog;

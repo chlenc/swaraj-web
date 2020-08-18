@@ -35,7 +35,7 @@ margin: -5px;
 margin: 5px;
 }
 `
-const Send: React.FC = () =>
+const SendDialog: React.FC = () =>
     <Dialog>
         <Root>
             <Title>
@@ -55,4 +55,4 @@ const Send: React.FC = () =>
         </Root>
     </Dialog>
 
-export default Send;
+export default SendDialog;

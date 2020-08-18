@@ -29,7 +29,7 @@ color: #43A047
 const Text = styled.div`
 font-size: 12px;
 `
-const CreateAccount: React.FC = () =><Dialog>
+const CreateAccountDialog: React.FC = () =><Dialog>
     <Root>
         <Title>
             Connect Your Wallet
@@ -48,4 +48,4 @@ const CreateAccount: React.FC = () =><Dialog>
     </Root>
 </Dialog>
 
-export default CreateAccount;
+export default CreateAccountDialog;

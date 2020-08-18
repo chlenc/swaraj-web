@@ -90,7 +90,7 @@ margin: -9px;
 margin: 9px;
 }
 `
-const GoodCard: React.FC = () =>
+const GoodCardDialog: React.FC = () =>
     <Dialog>
     <Root>
     <Tytle> Buy SWRJ T-Sh #0AΩ </Tytle>
@@ -122,4 +122,4 @@ const GoodCard: React.FC = () =>
     </Root>
     </Dialog>
 
-export default GoodCard;
+export default GoodCardDialog;

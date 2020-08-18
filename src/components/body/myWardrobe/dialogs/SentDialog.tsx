@@ -24,7 +24,7 @@ const Title =styled.div`
 `
 const Text = styled.div`
 `
-const Sent: React.FC = () =><Dialog>
+const SentDialog: React.FC = () =><Dialog>
     <Root>
         <Title>
             Your transaction has started
@@ -39,4 +39,4 @@ const Sent: React.FC = () =><Dialog>
     </Root>
 </Dialog>
 
-export default Sent;
+export default SentDialog;

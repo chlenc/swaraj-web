@@ -32,7 +32,7 @@ margin: -5px;
 margin: 5px;
 }
 `
-const NewAddress: React.FC = () =>
+const NewAddressDialog: React.FC = () =>
     <Dialog>
     <Root>
         <Title>
@@ -55,4 +55,4 @@ const NewAddress: React.FC = () =>
     </Root>
 </Dialog>
 
-export default NewAddress;
+export default NewAddressDialog;
