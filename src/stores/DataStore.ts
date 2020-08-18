@@ -75,13 +75,13 @@ export default class DataStore extends SubStore {
         database.ref(`goods/${id}`).remove((error) => resolve(error))
         await this.syncGood()
     });
-    addImage = async (item: Blob|File) => new Promise (async (resolve) =>{
-      await  storage.ref(`goods`).put(item)
+    addImage = async (item: Blob&File) => new Promise (async (resolve) =>{
+      await  storage.ref(`goods/${item.name}`).put(item)
             .on("state_changed",
              snapshot => {},
              error => {console.log(error)},
              ()=> storage.ref("goods")
-                 .child(File.name)
+                 .child(item.name)
                  .getDownloadURL()
                  .then((url)=> console.log(url)))
     } );

@@ -81,18 +81,20 @@ const InputForm: React.FC<IItems> = () => {
     const [title, setTitle] = useState<string>(''),
           [description, setDescription] = useState<string>(''),
           [quantity, setQuantity] = useState<string>(''),
+
           [vrPreview, setVRPreview] = useState<any>(null),
           [realWorldPreview, setRealWorldPreview] = useState<any>(null),
           [png, setPNG] = useState<any>(null),
           [assetPackage, setAssetPackage] = useState<any>(null),
+
           [vrPreviewUrl, setVRPreviewUrl] = useState<string>(''),
           [realWorldPreviewUrl, setRealWorldPreviewUrl] = useState<string>(''),
           [pngUrl, setPNGUrl] = useState<string>(''),
           [assetPackageUrl, setAssetPackageUrl] = useState<string>('');
 
     const handleSubmit = async (e:any) => {
-        console.log(vrPreview[0].name)
-        await  storage.ref(`goods`).put(vrPreview[0])
+        console.log(vrPreview)
+        await  storage.ref(`goods`).put(vrPreview)
             .on("state_changed",
                 snapshot => {},
                 error => {console.log(error)},
@@ -118,7 +120,7 @@ const InputForm: React.FC<IItems> = () => {
                         <Picker>
                             <input type="file" name="file"
                                    id = "3d" className="inputfile"
-                                   onChange = {(e)=> setVRPreview(e.target.files)}/>
+                                   onChange = {(e:any)=> setVRPreview(e.target.files[0])}/>
                             <label htmlFor="3d">Upload 3d Preview</label>
                             <button onClick = {handleSubmit}>tik</button>
                         </Picker>
