@@ -6,11 +6,11 @@ import good from '../../../assets/images/good.png'
 import Input from "../../Input";
 import Button from "../../Button";
 import {css, jsx} from "@emotion/core";
-import DataStore from "../../../stores/DataStore"
+import WearsStore from "../../../stores/WearsStore"
 import {useStores} from "../../../hooks/use-stores";
 
 interface IItems {
-    adminStore?: DataStore
+    adminStore?: WearsStore
 }
 
 const Root = styled.div`
@@ -81,7 +81,7 @@ const fileChangeWrapper = (f: (f: File) => void) => (e: React.ChangeEvent<HTMLIn
 
 
 const InputForm: React.FC<IItems> = () => {
-    const {dataStore: adminStore} = useStores()
+    const {wearsStore: adminStore} = useStores()
 
     const [title, setTitle] = useState<string>(''),
         [description, setDescription] = useState<string>(''),
@@ -113,7 +113,7 @@ const InputForm: React.FC<IItems> = () => {
             //todo show invalid form message
             return
         }
-        const downloadUrl = await adminStore?.addFile(vrPreview)
+        // const downloadUrl = await adminStore?.addFile(vrPreview)
         // adminStore?.addItem({title, description, quantity, vrPreview, realWorldPreview, png, assetPackage})
     }
 

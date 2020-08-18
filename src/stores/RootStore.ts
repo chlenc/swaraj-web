@@ -1,18 +1,18 @@
-import {DataStore} from "./index";
+import {WearsStore} from "./index";
+import {reaction} from "mobx";
 
 export class RootStore {
 
-  public dataStore: DataStore;
+  public wearsStore: WearsStore;
 
   constructor(initState: any) {
-    this.dataStore = new DataStore(
-        this,
-        initState && initState.dataStore ? initState.dataStore : null
-    );
+    this.wearsStore = new WearsStore(this);
+
+    this.wearsStore.sync().then()
   }
 
   public serialize = () => ({
-    dataStore: {}
+    wearsStore: {}
   });
 }
 
