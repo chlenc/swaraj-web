@@ -1,5 +1,5 @@
-import {RootStore} from "@stores";
 import React from "react";
+import {RootStore} from "../stores";
 
 export const mobXStore = new RootStore()
 
