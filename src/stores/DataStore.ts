@@ -1,8 +1,7 @@
-import { RootStore } from "./index";
-import { SubStore } from "./SubStore";
+import {RootStore} from "./index";
+import {SubStore} from "./SubStore";
 import {database, storage} from "../utils/firebase";
-import { action, observable } from "mobx";
-
+import {action, observable} from "mobx";
 
 
 export interface IItem {
@@ -61,13 +60,13 @@ export default class DataStore extends SubStore {
     //         //         .getDownloadURL()
     //         //         .then((url)=> ))
 
-   // };
+    // };
 
-    addItem = async (item: IItem) => new Promise (async (resolve) =>{
+    addItem = async (item: IItem) => new Promise(async (resolve) => {
         database.ref(`goods/`).push(item, (error) => resolve(error))
         await this.syncGood()
-    } );
-    updateItem = async (item: IItem, id: string) => new Promise (async (resolve) =>{
+    });
+    updateItem = async (item: IItem, id: string) => new Promise(async (resolve) => {
         database.ref(`goods/${id}`).update(item, (error) => resolve(error))
         await this.syncGood()
     });
@@ -75,14 +74,8 @@ export default class DataStore extends SubStore {
         database.ref(`goods/${id}`).remove((error) => resolve(error))
         await this.syncGood()
     });
-    addImage = async (item: Blob&File) => new Promise (async (resolve) =>{
-      await  storage.ref(`goods/${item.name}`).put(item)
-            .on("state_changed",
-             snapshot => {},
-             error => {console.log(error)},
-             ()=> storage.ref("goods")
-                 .child(item.name)
-                 .getDownloadURL()
-                 .then((url)=> console.log(url)))
-    } );
+    addFile = async (item: Blob & File) => {
+        const res = await storage.ref('/').put(item)
+        return await res.ref.getDownloadURL()
+    }
 }
