@@ -64,7 +64,7 @@ const Footer: React.FC = () =>
                 <MenuButton href={ROUTES.AUTHENTICATEanITEM} text='Authenticate An Item'/>
                 <MenuButton href={ROUTES.DELIVERY} text='Customer Care'/>
                 <a href="https://github.com/chlenc/swaraj-web">
-                    <img src="https://cdn.iconscout.com/icon/free/png-256/github-153-675523.png"/>
+                    <img src="https://cdn.iconscout.com/icon/free/png-256/github-153-675523.png" alt="img"/>
                 </a>
             </MenuColumn>
         </Menu>

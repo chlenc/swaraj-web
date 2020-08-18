@@ -2,7 +2,6 @@ import React from "react";
 import styled from "@emotion/styled";
 import Dialog from "../../../Dialog";
 import Button from "../../../Button";
-import Input from "../../../Input";
 import {ROUTES} from "../../../../ROUTES";
 import {Link} from "react-router-dom";
 
