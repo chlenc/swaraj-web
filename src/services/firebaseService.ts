@@ -1,6 +1,7 @@
 import firebase from 'firebase/app';
 import 'firebase/storage';
 import 'firebase/database';
+import 'firebase/auth';
 
 // Initialize Firebase
 const config = {
@@ -15,7 +16,8 @@ firebase.initializeApp(config);
 
 const database = firebase.database();
 const storage = firebase.storage()
+const auth = firebase.auth()
 
 export {
-    storage, database, firebase as default,
+    storage, database, auth,firebase as default,
 }
