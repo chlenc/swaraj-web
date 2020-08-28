@@ -1,10 +1,16 @@
 import React from "react";
 import Good from "./Good";
+import styled from "@emotion/styled";
 
-
-const MainPage: React.FunctionComponent = () => <div>
+const Root = styled.div`
+margin: -45px;
+& > *{
+margin: 45px;
+}
+`
+const MainPage: React.FunctionComponent = () => <Root>
     <Good/>
     <Good/>
-</div>
+</Root>
 
 export default MainPage;

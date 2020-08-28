@@ -62,6 +62,6 @@ const App: React.FC = () => <Router history={history}>
             <Route path={ROUTES.SEND} component={SendDialog}/>
             <Route path={ROUTES.SENT} component={SentDialog}/>
 
-            <Footer/>
+            <footer><Footer/></footer>
         </Router>
 export default App;
