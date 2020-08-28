@@ -7,8 +7,9 @@ display: flex;
 justify-content: center;
 text-align: center;
 &>* {
-width: 30%;
-margin: -41px;
+width: 100%;
+max-width: 378px;
+margin: 41px;
 }
 `
 const ColumnOne = styled.div`
@@ -16,7 +17,7 @@ const ColumnOne = styled.div`
 const ColumnTwo = styled.div`
 `
 const Item = styled.div`
-margin: 41px;
+margin-top: 41px;
 display: flex;
 flex-direction: column;
 align-items: center;
@@ -30,7 +31,6 @@ line-height: 16px;
 color: #000000;
 `
 const Text = styled.div`
-width: 78%;
 font-size: 12px;
 line-height: 16px;
 color: #19191D;
