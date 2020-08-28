@@ -27,41 +27,45 @@ import SentDialog from "./components/body/myWardrobe/dialogs/SentDialog";
 import SignInDialog from "./components/body/mainPage/dialogs/SignInDialog";
 import CreateAccountDialog from "./components/body/mainPage/dialogs/CreateAccountDialog";
 import GoodCardDialog from "./components/body/mainPage/dialogs/GoodCardDialog";
+import styled from "@emotion/styled";
 
-
+const Root = styled.div`
+width: 100vw;
+height: 100vh;
+`
 const history = createBrowserHistory()
 
 const App: React.FC = () => <Router history={history}>
-            <Header/>
-            <Switch>
-                <Route exact path={ROUTES.ROOT} component={MainPage}/>
-                <Route path={ROUTES.FAQ} component={FAQ}/>
-                <Route path={ROUTES.ABOUT} component={About}/>
-                <Route exact path={ROUTES.BLOG} component={Blog}/>
-                <Route exact path={ROUTES.DOCS} component={Docs}/>
-                <Route exact path={ROUTES.PRIVACYPOLICY} component={PrivacyPolicy}/>
-                <Route exact path={ROUTES.TERMSofSERVICE} component={TermsOfService}/>
-                <Route exact path={ROUTES.AUTHENTICATEanITEM} component={AuthenticateAnItem}/>
+    <Root>
+        <Header/>
+        <Switch>
+            <Route exact path={ROUTES.ROOT} component={MainPage}/>
+            <Route path={ROUTES.FAQ} component={FAQ}/>
+            <Route path={ROUTES.ABOUT} component={About}/>
+            <Route exact path={ROUTES.BLOG} component={Blog}/>
+            <Route exact path={ROUTES.DOCS} component={Docs}/>
+            <Route exact path={ROUTES.PRIVACYPOLICY} component={PrivacyPolicy}/>
+            <Route exact path={ROUTES.TERMSofSERVICE} component={TermsOfService}/>
+            <Route exact path={ROUTES.AUTHENTICATEanITEM} component={AuthenticateAnItem}/>
 
-                <Route path={ROUTES.HOWtoSHOP} component={HowToShop}/>
-                <Route path={ROUTES.PRODUCTINFO} component={ProductInfo}/>
-                <Route path={ROUTES.PAYMENT} component={Payment}/>
-                <Route path={ROUTES.DELIVERY} component={Delivery}/>
-                <Route path={ROUTES.RETURNS} component={Returns}/>
+            <Route path={ROUTES.HOWtoSHOP} component={HowToShop}/>
+            <Route path={ROUTES.PRODUCTINFO} component={ProductInfo}/>
+            <Route path={ROUTES.PAYMENT} component={Payment}/>
+            <Route path={ROUTES.DELIVERY} component={Delivery}/>
+            <Route path={ROUTES.RETURNS} component={Returns}/>
 
-                <Route path={ROUTES.MYTHINGS} component={MyThings}/>
-                <Route path={ROUTES.VIEWHISTORY} component={ViewHistory}/>
-                <Route path={ROUTES.VIEWWALLET} component={ViewWallet}/>
-                <Route path={ROUTES.SETTINGS} component={Settings}/>
-                <Route path={ROUTES.ADMIN} component={Admin}/>
-            </Switch>
-
-            <Route path={ROUTES.SIGNIN} component={SignInDialog}/>
-            <Route path={ROUTES.INSTALLMETAMASK} component={CreateAccountDialog}/>
-            <Route path={ROUTES.BUY} component={GoodCardDialog}/>
-            <Route path={ROUTES.SEND} component={SendDialog}/>
-            <Route path={ROUTES.SENT} component={SentDialog}/>
-
-            <footer><Footer/></footer>
-        </Router>
+            <Route path={ROUTES.MYTHINGS} component={MyThings}/>
+            <Route path={ROUTES.VIEWHISTORY} component={ViewHistory}/>
+            <Route path={ROUTES.VIEWWALLET} component={ViewWallet}/>
+            <Route path={ROUTES.SETTINGS} component={Settings}/>
+            <Route path={ROUTES.ADMIN} component={Admin}/>
+        </Switch>
+        <Route path={ROUTES.SIGNIN} component={SignInDialog}/>
+        <Route path={ROUTES.INSTALLMETAMASK} component={CreateAccountDialog}/>
+        <Route path={ROUTES.BUY} component={GoodCardDialog}/>
+        <Route path={ROUTES.SEND} component={SendDialog}/>
+        <Route path={ROUTES.SENT} component={SentDialog}/>
+    </Root>
+    <Footer/>
+</Router>
 export default App;
