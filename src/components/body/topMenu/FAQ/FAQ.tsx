@@ -2,7 +2,7 @@ import React from "react";
 import styled from "@emotion/styled";
 
 const Root = styled.div`
-margin: 54px 0;
+margin: 11px 0 54px 0;
 display: flex;
 justify-content: center;
 text-align: center;
