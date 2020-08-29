@@ -1,10 +1,10 @@
 import React from "react";
 import styled from "@emotion/styled";
-import Dialog from "../../../Dialog";
-import Button from "../../../Button";
-import Input from "../../../Input";
-import {ROUTES} from "../../../../ROUTES";
+import Button from "../../Button";
+import Input from "../../Input";
+import {ROUTES} from "../../../ROUTES";
 import {Link} from "react-router-dom";
+import DialogMaterial, {IDialogProps} from "../../DialogMaterial";
 
 const Root = styled.div`
 display: flex;
@@ -29,7 +29,9 @@ color: #43A047
 const Text = styled.div`
 font-size: 12px;
 `
-const CreateAccountDialog: React.FC = () =><Dialog>
+interface IProps extends IDialogProps{
+}
+const CreateAccountDialog: React.FC<IProps> = ({open, onClose}) =><DialogMaterial open={open} onClose={onClose}>
     <Root>
         <Title>
             Connect Your Wallet
@@ -46,6 +48,6 @@ const CreateAccountDialog: React.FC = () =><Dialog>
             <Link to={ROUTES.ROOT}>Create Account</Link>
         </Button>
     </Root>
-</Dialog>
+</DialogMaterial>
 
 export default CreateAccountDialog;

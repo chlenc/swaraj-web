@@ -4,9 +4,8 @@ import styled from "@emotion/styled";
 import good from "../../../assets/images/good.png"
 import {css, jsx} from "@emotion/core";
 import Button from "../../Button";
-import {ROUTES} from "../../../ROUTES";
-import {Link} from "react-router-dom";
 import Size from "../Size";
+import GoodCardDialog from "./dialogs/GoodCardDialog";
 
 
 const Root = styled.div`
@@ -37,6 +36,7 @@ line-height: 13px;
 const ViewButton = styled.button`
 margin: 16px;
 cursor: pointer;
+outline: none;
 border: 0;
 background: none;
 font-family: Oxygen Mono,monospace;
@@ -85,9 +85,14 @@ line-height: 16px;
 color: #19191D
 `
 const Good: React.FunctionComponent = () => {
+    //Preview block
     const [isDigital, setDigital] = useState(true)
     const handleDigitalView = () => setDigital(true)
     const handlePhysicalView = () => setDigital(false)
+
+    const [open, setOpen] = useState(false)
+    const handleOpen = ()=> setOpen(true)
+    const handleClose = () => setOpen(false)
 
     return  <Root>
         <GoodImg>
@@ -130,9 +135,9 @@ const Good: React.FunctionComponent = () => {
                 <Size css={css`text-decoration: underline;`}>Sizing</Size>
             </SizeChoose>
             <Price>Price: 49 USD (0.27 ETH)</Price>
-            <Button css={css`background:#CBE5CC; border: 0;`}>
-                <Link to={ROUTES.BUY}>Buy</Link></Button>
+            <Button css={css`background:#CBE5CC; border: 0;`} onClick={handleOpen}>Buy</Button>
         </GoodInfo>
+        <GoodCardDialog open={open} onClose={handleClose}/>
     </Root>;
 }
 

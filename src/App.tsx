@@ -24,14 +24,20 @@ import Settings from "./components/body/myWardrobe/Settings";
 import Admin from "./components/body/myWardrobe/Admin/Admin";
 import SendDialog from "./components/body/myWardrobe/dialogs/SendDialog";
 import SentDialog from "./components/body/myWardrobe/dialogs/SentDialog";
-import SignInDialog from "./components/body/mainPage/dialogs/SignInDialog";
-import CreateAccountDialog from "./components/body/mainPage/dialogs/CreateAccountDialog";
-import GoodCardDialog from "./components/body/mainPage/dialogs/GoodCardDialog";
 import styled from "@emotion/styled";
 
 const Root = styled.div`
-width: 100vw;
-height: 100vh;
+min-height: 80vh;
+.MuiDialog-root{
+// here is material ui dialog's styles
+margin-top: 277px;
+padding: 25px 28px;
+border: 1px solid #9696A0;
+box-sizing: border-box;
+background-color: rgba(0, 0, 0, 0);
+box-shadow: 0 1px 4px rgba(90, 91, 106, 0.24), 0 1px 2px rgba(58, 58, 68, 0.25);
+border-radius: 2px
+}
 `
 const history = createBrowserHistory()
 
@@ -60,9 +66,6 @@ const App: React.FC = () => <Router history={history}>
             <Route path={ROUTES.SETTINGS} component={Settings}/>
             <Route path={ROUTES.ADMIN} component={Admin}/>
         </Switch>
-        <Route path={ROUTES.SIGNIN} component={SignInDialog}/>
-        <Route path={ROUTES.INSTALLMETAMASK} component={CreateAccountDialog}/>
-        <Route path={ROUTES.BUY} component={GoodCardDialog}/>
         <Route path={ROUTES.SEND} component={SendDialog}/>
         <Route path={ROUTES.SENT} component={SentDialog}/>
     </Root>

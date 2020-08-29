@@ -1,10 +1,9 @@
-import React from "react";
+import React, {useState} from "react";
 import styled from "@emotion/styled";
-import Dialog from "../../../Dialog";
 import Button from "../../../Button";
 import Input from "../../../Input";
-import {ROUTES} from "../../../../ROUTES";
-import {Link} from "react-router-dom";
+import DialogMaterial, {IDialogProps} from "../../../DialogMaterial";
+import SentDialog from "./SentDialog";
 
 const Root = styled.div`
 display: flex;
@@ -35,8 +34,13 @@ margin: -5px;
 margin: 5px;
 }
 `
-const SendDialog: React.FC = () =>
-    <Dialog>
+interface IProps extends IDialogProps{
+}
+const SendDialog: React.FC<IProps> = ({open, onClose}) =>{
+    const [status, setOpen] = useState(false)
+    const handleOpen  = () => setOpen(true);
+    const handleClose = () => setOpen(false);
+    return <DialogMaterial open={open} onClose={onClose}>
         <Root>
             <Title>
                 Your Balance
@@ -47,12 +51,12 @@ const SendDialog: React.FC = () =>
             <Input placeholder="Amount"/>
             <Input placeholder="To Address"/>
             <ButtonBox>
-                <Button>
-                    <Link to={ROUTES.ROOT}>Cancel</Link>
-                </Button>
-                <Button>Send</Button>
+                <Button onClick={(e)=>onClose('false')}>Cancel</Button>
+                <Button onClick={handleOpen}>Send</Button>
             </ButtonBox>
         </Root>
-    </Dialog>
+        <SentDialog open={status} onClose={handleClose}/>
+    </DialogMaterial>
+}
 
 export default SendDialog;
