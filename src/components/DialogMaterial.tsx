@@ -7,19 +7,21 @@ export interface IDialogProps {
     onClose: (value: string) => void;
 }
 const useStyles = makeStyles({
-    root: {
-
-        background: 'none',
+    paper: {
+        padding: '25px 28px',
+        border: '1px solid #9696A0',
         boxSizing: 'border-box',
-        boxShadow: '0 1px 4px rgba(90, 91, 106, 0.24), 0 1px 2px rgba(58, 58, 68, 0.25)',
         },
-    container:{border: '1px solid #9696A0',borderRadius: '2px'},
-    paper:{padding: '25px 28px',}
 })
 const DialogMaterial: React.FunctionComponent<IDialogProps> = ({children, open, onClose}) =>{
     const classes = useStyles();
-    return <Dialog open={open} onClose={onClose} classes={classes}>
-        {children}
+    return <Dialog open={open} onClose={onClose} classes={classes} BackdropProps={{
+        style: {
+            backgroundColor: 'transparent',
+            boxShadow: '0 1px 4px rgba(90, 91, 106, 0.24), 0 1px 2px rgba(58, 58, 68, 0.25)',
+        },
+    }}>
+            {children}
     </Dialog>
 }
 export default DialogMaterial;

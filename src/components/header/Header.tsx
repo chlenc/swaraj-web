@@ -32,8 +32,6 @@ margin-top: 32px;
 
 const Header: React.FC = () =>{
     const [open, setOpen] = useState(false);
-    const handleOpen = () => setOpen(true);
-    const handleClose = () => setOpen(false);
 
     return <Root>
         <Menu>
@@ -41,10 +39,10 @@ const Header: React.FC = () =>{
             <MenuButton href={ROUTES.ABOUT} text="About"/>
             <MenuButton href={ROUTES.BLOG} text="Blog"/>
             <MenuButton href={ROUTES.DOCS} text="Docs"/>
-            <Button onClick = {handleOpen}>Sign In</Button>
+            <Button onClick = {() => setOpen(true)}>Sign In</Button>
         </Menu>
         <Link to={ROUTES.ROOT}><Logo src={logo} alt="Logo"/></Link>
-        <SignInDialog open={open} onClose={handleClose}/>
+        <SignInDialog open={open} onClose={() => setOpen(false)}/>
     </Root>
 }
 

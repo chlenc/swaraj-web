@@ -29,8 +29,6 @@ interface IProps extends IDialogProps{
 }
 const SignInDialog: React.FC<IProps> = ({open,onClose}) =>{
     const [status, setStatus] = useState(false)
-    const handleOpen = () => setStatus(true)
-    const handleClose = () => setStatus(false)
 
     return <DialogMaterial open={open} onClose={onClose}>
         <Root>
@@ -45,9 +43,9 @@ const SignInDialog: React.FC<IProps> = ({open,onClose}) =>{
                 <SizedBox height={20}/>
                 Don’t Worry, it’s easy.
             </Text>
-            <Button onClick={handleOpen}>Install Metamask</Button>
+            <Button onClick={() => setStatus(true)}>Install Metamask</Button>
         </Root>
-        <CreateAccountDialog open={status} onClose={handleClose}/>
+        <CreateAccountDialog open={status} onClose={() => setStatus(false)}/>
     </DialogMaterial>
 }
 

@@ -24,7 +24,8 @@ const Text = styled.div`
 `
 interface IProps extends IDialogProps{
 }
-const SentDialog: React.FC<IProps> = ({open, onClose}) =><DialogMaterial open={open} onClose={onClose}>
+const SentDialog: React.FC<IProps> = ({open, onClose}) =>
+    <DialogMaterial open={open} onClose={onClose}>
     <Root>
         <Title>
             Your transaction has started

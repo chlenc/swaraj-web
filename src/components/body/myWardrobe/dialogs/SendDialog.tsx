@@ -38,8 +38,7 @@ interface IProps extends IDialogProps{
 }
 const SendDialog: React.FC<IProps> = ({open, onClose}) =>{
     const [status, setOpen] = useState(false)
-    const handleOpen  = () => setOpen(true);
-    const handleClose = () => setOpen(false);
+
     return <DialogMaterial open={open} onClose={onClose}>
         <Root>
             <Title>
@@ -51,11 +50,11 @@ const SendDialog: React.FC<IProps> = ({open, onClose}) =>{
             <Input placeholder="Amount"/>
             <Input placeholder="To Address"/>
             <ButtonBox>
-                <Button onClick={(e)=>onClose('false')}>Cancel</Button>
-                <Button onClick={handleOpen}>Send</Button>
+                <Button onClick={()=>onClose('false')}>Cancel</Button>
+                <Button onClick={() => setOpen(true)}>Send</Button>
             </ButtonBox>
         </Root>
-        <SentDialog open={status} onClose={handleClose}/>
+        <SentDialog open={status} onClose={() => setOpen(false)}/>
     </DialogMaterial>
 }
 

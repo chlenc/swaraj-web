@@ -87,12 +87,8 @@ color: #19191D
 const Good: React.FunctionComponent = () => {
     //Preview block
     const [isDigital, setDigital] = useState(true)
-    const handleDigitalView = () => setDigital(true)
-    const handlePhysicalView = () => setDigital(false)
 
     const [open, setOpen] = useState(false)
-    const handleOpen = ()=> setOpen(true)
-    const handleClose = () => setOpen(false)
 
     return  <Root>
         <GoodImg>
@@ -106,8 +102,8 @@ const Good: React.FunctionComponent = () => {
             </Digital>
             <ImgPreview>
                 Preview:
-                <ViewButton onClick = {handleDigitalView}>Digital</ViewButton>
-                <ViewButton onClick = {handlePhysicalView}>Physical</ViewButton>
+                <ViewButton onClick = {() => setDigital(true)}>Digital</ViewButton>
+                <ViewButton onClick = {() => setDigital(false)}>Physical</ViewButton>
             </ImgPreview>
         </GoodImg>
         <GoodInfo>
@@ -135,9 +131,9 @@ const Good: React.FunctionComponent = () => {
                 <Size css={css`text-decoration: underline;`}>Sizing</Size>
             </SizeChoose>
             <Price>Price: 49 USD (0.27 ETH)</Price>
-            <Button css={css`background:#CBE5CC; border: 0;`} onClick={handleOpen}>Buy</Button>
+            <Button css={css`background:#CBE5CC; border: 0;`} onClick={()=> setOpen(true)}>Buy</Button>
         </GoodInfo>
-        <GoodCardDialog open={open} onClose={handleClose}/>
+        <GoodCardDialog open={open} onClose={() => setOpen(false)}/>
     </Root>;
 }
 
