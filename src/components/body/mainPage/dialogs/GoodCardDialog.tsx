@@ -1,13 +1,14 @@
 /** @jsx jsx */
 import React from "react";
 import styled from "@emotion/styled";
-import Dialog from "../../../Dialog";
 import good from "../../../../assets/images/good.png"
 import Size from "../../Size";
 import {css,jsx} from "@emotion/core";
 import Button from "../../../Button";
 import {ROUTES} from "../../../../ROUTES";
 import {Link} from "react-router-dom";
+import DialogMaterial, {IDialogProps} from "../../../DialogMaterial";
+
 
 const Root = styled.div`
 margin: 10px;
@@ -90,8 +91,11 @@ margin: -9px;
 margin: 9px;
 }
 `
-const GoodCardDialog: React.FC = () =>
-    <Dialog>
+interface IProps extends IDialogProps{
+}
+
+const GoodCardDialog: React.FC<IProps> = ({open, onClose}) =>
+    <DialogMaterial open={open} onClose={onClose}>
     <Root>
     <Tytle> Buy SWRJ T-Sh #0AΩ </Tytle>
         <Good src={good}/>
@@ -114,12 +118,10 @@ const GoodCardDialog: React.FC = () =>
                 <Input value ="Gleb Sychev Dlinnofamilievich Mladshiy, Huilova Prospekt Ogromniy Adress Blyat, 42-0,Moscow, Moskva g. 117335, Russian Federation"/>
         </DeliveryBox>
         <ButtonBox>
-            <Button>
-                <Link to={ROUTES.ROOT}>Cancel</Link>
-            </Button>
+            <Button onClick ={(e)=>onClose('false')}>Cancel</Button>
             <Button css = {css`border: 0; background: #CBE5CC;`}>Buy</Button>
         </ButtonBox>
     </Root>
-    </Dialog>
+    </DialogMaterial>
 
 export default GoodCardDialog;

@@ -17,17 +17,10 @@ export enum ROUTES {
     DELIVERY = '/customer_care/delivery',
     RETURNS = '/customer_care/returns',
 
-    SIGNIN = '/sign_in',
-    INSTALLMETAMASK = '/create_account',
-    BUY = '/buy',
-
     MYTHINGS = '/my_things',
     VIEWHISTORY = '/view_history',
     VIEWWALLET = '/view_wallet',
     SETTINGS = '/settings',
     ADMIN = '/admin',
-
-    SEND = '/send',
-    SENT = '/sent',
 
 }

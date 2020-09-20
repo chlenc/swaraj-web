@@ -5,6 +5,7 @@ const Button = styled.button`
 display: flex;
 flex-direction: row;
 cursor: pointer;
+outline: none;
 border-radius: 4px;
 padding: 12px 16px;
 border: 1px solid #4A4B57; 

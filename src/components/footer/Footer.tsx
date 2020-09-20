@@ -15,7 +15,7 @@ letter-spacing: 0.054em;
 text-transform: capitalize;
 color: #4A4B57;
 margin-top: 120px;
-margin-bottom: 100px;
+margin-bottom: 40px;
 & img{
 width: 30px;
 height: auto;
@@ -63,9 +63,6 @@ const Footer: React.FC = () =>
             <MenuColumn>
                 <MenuButton href={ROUTES.AUTHENTICATEanITEM} text='Authenticate An Item'/>
                 <MenuButton href={ROUTES.DELIVERY} text='Customer Care'/>
-                <a href="https://github.com/chlenc/swaraj-web">
-                    <img src="https://cdn.iconscout.com/icon/free/png-256/github-153-675523.png" alt="img"/>
-                </a>
             </MenuColumn>
         </Menu>
         <FeedBackBar>

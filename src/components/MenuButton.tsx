@@ -19,6 +19,7 @@ cursor: pointer;
 border-radius: 4px;
 padding: 12px 16px;
 text-decoration: none;
+font-size: 14px;
 color: #4A4B57;
 }
 `
